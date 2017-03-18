@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>JavaSe基础第三节</title>
+<link href="http://at.alicdn.com/t/font_1462372683_1439688.css" rel="stylesheet"/>
+<style type="text/css">
+	* {margin:0;padding:0;}
+	body{font-size:12px;font-family:"微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;background:#eaeaea;}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	img{vertical-align:top;}
+	.paddingleft1{padding-left:2em;}
+	.paddingleft2{padding-left:3.5em;}
+	.highlight{color:#f92672;}
+	.green{color:green;}
+	.container{position:relative;min-height:100%;}
+	/*mid-col start*/
+	.container .mid-col{position:absolute;right:0;width:100%;min-height:100%;background-color:#eaeaea;}
+	.container .mid-col .body-wrap{margin-bottom:80px;}
+	.container .mid-col .body-wrap article{min-height:346px;background:#fff;margin:60px;border:1px solid #ddd;position:relative;}
+	.container .mid-col .body-wrap article:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);transition:all .2s linear;}
+	.container .mid-col .body-wrap article .article-header{border-left:5px solid rgba(0,0,0,.7);padding:15px 0px 15px 25px;}
+	.container .mid-col .body-wrap article .article-header h1{font-size:1.5em;}
+	.container .mid-col .body-wrap article .article-header .article-title{color:#696969;font-size:26px;line-height:35px;font-weight:300;margin-bottom:20px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-header .article-title:hover{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-meta{position:absolute;top:23px;right:0;width:150px;text-align:center;}
+	.container .mid-col .body-wrap article .article-meta time{color:#aaa;font-size:16px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-meta i.time{color:#aaa;}
+	.container .mid-col .body-wrap article .article-meta:hover time{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-entry{padding:0 30px;line-height:1.8em;}
+	.container .mid-col .body-wrap article .article-entry h4{font-size:1.3em;color:#574c4c;font-weight:500;border-bottom:1px solid #ddd;margin-top:20px;padding-bottom:5px;}
+	.container .mid-col .body-wrap article .article-entry ul{margin:10px 0px;font-size:14px;color:rgba(99, 96, 96, 0.9);}
+	.container .mid-col .body-wrap article .article-entry ul li{line-height:30px;}
+	.container .mid-col .body-wrap article .article-entry ul li:before{content:"";display:inline-block;float:left;width:6px;height:6px;margin-top:11px;margin-right:10px;background:#aaa;border:1px solid #999;border-radius:10px;}
+	.container .mid-col .body-wrap article .article-entry ul li code{padding:1px 3px;margin:0 3px;background:#ddd;border:1px solid #ccc;font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;word-wrap: break-word;font-size:14px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index{padding-top:20px;margin:30px 30px 0 30px;border-top:1px solid #ddd;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link{margin-top:5px;text-align:right;height:45px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a{color:#fff;font-size:12px;background:#4d4d4d;padding:2px 8px 4px;border-radius:2px;transition:background 0.3s;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a:hover{background:#3c3c3c;}
+	.article-entry figure{max-height:400px;border-radius:4px;background:#272822;margin:10px 0;padding: 10px 10px;overflow:auto;color:#4c4c4c;}
+	.article-entry figure table{border-collapse:collapse;width:auto;vertical-align:middle;border-spacing:0;}
+	.article-entry figure table .line{font-size:15px;line-height:20px;}
+	.article-entry figure table td.gutter{padding-right:20px;text-align:right;color:#666;}
+	.article-entry figure table td pre{font-family:"Source Code Pro",Consolas,Monaco,Menlo,Consolas,monospace;}
+	.article-entry figure table td.code pre{color:#fff;}
+	#to-top{width:36px;height:36px;position:fixed;bottom:40px;right:20px;background:url(images/icon-to-top.png) no-repeat;background-position:-38px 0;cursor:pointer;display:none;}
+	#to-top:hover{background-position:0 0;}
+	/*end mid-col*/
+</style>
+</head>
+<body>
+	<div class="container">
+		<!-- mid-col start -->
+		<div class="mid-col">
+			<div class="body-wrap">
+				<article>
+					<div class="article-meta">
+						<a href="javascript:void(0);" target="_blank" class="article-date">
+							<i class="iconfont time">&#xe600;</i>
+							<time>2016-05-07</time>
+						</a>
+					</div>
+					<header class="article-header">
+						<h1><a class="article-title" href="javascript:void(0);">JavaSe基础第三节</a></h1>
+					</header>
+					<div class="article-entry">
+						<h4><span>Java运算符</span></h4>
+						<ul>
+							<li>
+								运算符是一种特殊的符号，用以表示数据的运算、赋值和比较等。
+							</li>
+							<li>
+								1.算术运算符，如：<code>int a = 1;int b = 2;a <span class="highlight">+</span> b</code>
+							</li>
+							<li>
+								2.赋值运算符，如：<code>int a <span class="highlight">=</span> 1;</code>
+							</li>
+							<li>
+								3.比较运算符（关系运算符），如：<code>a <span class="highlight">&gt;</span> b</code>;<code>a <span class="highlight">>=</span> b</code>
+							</li>
+							<li>
+								4.逻辑运算符，如：<code>if(a = 1 <span class="highlight">&&</span> b = 2)</code>；<code>if(a = 1 <span class="highlight">||</span> b = 2)</code>
+							</li>
+							<li>
+								5.位运算符，如：<code>4 <span class="highlight">>> 2</span></code>；<code>4 <span class="highlight">&lt;&lt;</span> 2</code>
+							</li>
+							<li>
+								6.三元运算符，如：<code>a = a == 2<span class="highlight">?</span>2<span class="highlight">:</span>3</code>
+							</li>
+						</ul>
+						<h4><span>一、算术运算符</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">除法的时候整数相除在除不尽的时候，想要获取小数结果，必须一方转成float类型。否则在计算的时候就会丢掉，造成精度丢失。(如文件上传)；		从jdk1.7以后数据类型是可以接受二进制了。0b或者0B的组合01的形式都是二进制；如：<code>int a = 0b1010</code></span>
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span><br/><span class="line">52</span><br/><span class="line">53</span><br/><span class="line">54</span><br/><span class="line">55</span><br/><span class="line">56</span><br/><span class="line">57</span><br/><span class="line">58</span><br/><span class="line">59</span><br/><span class="line">60</span><br/><span class="line">61</span><br/><span class="line">62</span><br/><span class="line">63</span><br/><span class="line">64</span><br/><span class="line">65</span><br/><span class="line">66</span><br/><span class="line">67</span><br/><span class="line">68</span><br/><span class="line">69</span><br/><span class="line">70</span><br/><span class="line">71</span><br/><span class="line">72</span><br/><span class="line">73</span><br/><span class="line">74</span><br/><span class="line">75</span><br/><span class="line">76</span></pre>
+												</td>
+												<td class="code"><pre><span class="line green">/*</span><br/><span class="line">int a = 2;</span><br/><span class="line">int b = 10;</span><br/><span class="line green">//用一个浮点型可接收一个整型</span><br/><span class="line">float c = a/b;</span><br/><span class="line green">//a/(float)b只要有一个是浮点型除法后可得到浮点型的数</span><br/><span class="line">float d = a/(float)b;</span><br/><span class="line green">//a/b属于整型</span><br/><span class="line">System.out.println(a/b);//输出0</span><br/><span class="line">System.out.println(c);//输出0.0</span><br/><span class="line">System.out.println(d);//输出0.2</span><br/><span class="line">int e = 1;</span><br/><span class="line">int f = 3;</span><br/><span class="line">float ff = (float)e/f;</span><br/><span class="line">System.out.println(e/f);//输出0</span><br/><span class="line">System.out.println(ff);//输出0.33333334*/</span><br/><span class="line green">/*</span><br/><span class="line green">//如果被除数（分子）是负数，那么结果是就负数，如果除数（分母）是负数，分子是整数，结果是正数。如果都是负数其结果就是负数</span><br/><span class="line">int a = -6;</span><br/><span class="line">int b = 4;</span><br/><span class="line">int c = 6;</span><br/><span class="line">int d = -4;</span><br/><span class="line">System.out.println(a%b);//-2</span><br/><span class="line">System.out.println(c%d);//2</span><br/><span class="line">System.out.println(a%d);//-2*/</span><br/><span class="line green">/*</span><br/><span class="line">float a = 0.0f;</span><br/><span class="line">int b = 10;</span><br/><span class="line">int c = 2;</span><br/><span class="line">int e = 0;</span><br/><span class="line">float f = 2.0f;</span><br/><span class="line green">//取模时分母为整型的零，会报错</span></br><span class="line">System.out.println(b%e);//报错：Exception in thread "main" java.lang.ArithmeticException:/ by zeroat Three.main(Three.java:31)</span><br/><span class="line green">//被除数（分子）大于除数（分母）按正常运算进行取余</span><br/><span class="line">System.out.println(b%c);//输出0</span><br/><span class="line green">//被除数（分子）小于除数时，取模得到的是被除数（分子）</span><br/><span class="line">System.out.println(c%b);//输出2</span><br/><span class="line green">//除数（分母）为浮点型的零，取模得到NaN</span><br/><span class="line">System.out.println(b%a);//输出NaN（不是一个数字）<span class="line green">//除数（分母）为浮点型的零，除法后得到Infinity</span><br/><span class="line">System.out.println(b/a);//输出Infinity（无穷大）</span><br/><span class="line green">//除数（分母）为整型的零，除法会报错</span><br/><span class="line">System.out.println(b/e);//报错：Exception in thread "main" java.lang.ArithmeticException:/ by zeroat Three.main(Three.java:31)</span><br/><span class="line green">//注意点2：1.0/0---Infinity无穷大，在除法运算中，如果有一方是浮点型或者两方都是浮点型，其计算结构一定浮点型。<br/>如果除数是0或者0.0都得到结果就是：无穷大</span><br/><span class="line">System.out.println(f/e);//输出Infinity</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">int a = 3;</span><br/><span class="line green">//后++，将a++看做一个整体，它是先将a赋值个b，然后此时内存中的a就变成了4</span><br/><span class="line">int b = a++;</span><br/><span class="line green">//前++，它是先将a自己加1，此时内存中的a就变成了5，然后再赋值给b</span><br/><span class="line">int c = ++a;<span class="line">System.out.println(b);//输出3</span><br/><span class="line">System.out.println(c);//输出5</span><br/><span class="line">System.out.println(a);//输出5*/</span><br/><span class="line green">/*</span><br/><span class="line">int a = 3;</span><br/><span class="line">int b = a++ + 2;//等同于b = 3 + 2，此时内存中的a变成了4</span><br/><span class="line">int c = ++a + b;//等同于c = 5 + 5，此时内存中的a变成了5</span><br/><span class="line">System.out.println(a+"===="+b+"===="+c);//输出5 5 10*/</span><br/><span class="line green">/*</span><br/><span class="line green">+号涉及String时，将其看做拼接符，按优先级进行运算拼接</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">String str = "hel";</span><br/><span class="line">String str1 = "low";</span><br/><span class="line">int a = 11;</span><br/><span class="line">int b = 12;</span><br/><span class="line">System.out.println(str+str1+a+b);//输出hellow1112</span><br/><span class="line">System.out.println(str+a+b+str1);//输出hel1112low</span><br/><span class="line">System.out.println(str+(a+b)+str1);//输出hel23low</span><br/><span class="line">System.out.println(a+b+str+str1);//输出23hellow*/</span><br/><span class="line green">/*</span><br/><span class="line">short s = 3;</span><br/><span class="line green">//s为低位节的整型，而2默认为int整型，低位节无法接收高位节的数据</span><br/><span class="line">s = s+2;</span><br/><span class="line">System.out.println(s);//错误:不兼容的类型:从int转换到short可能会有损失*/</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+								<img src="images/suanshu.png" width="600" height="300" alt="suanshu"/>
+							</li>
+						</ul>
+						<h4><span>二、赋值运算符</span></h4>
+						<ul>
+							<li>
+								符号：= ，当“=”两侧数据类型不一致时，可以使用自动类型转换或使用强制类型转换原则进行处理。支持连续赋值。扩展赋值运算符： +=, -=, *=, /=, %=
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span></pre>
+												</td>
+												<td class="code"><pre><span class="line green">/*//int 可以来接收自动转成的int类型数据</span><br/><span class="line">int a = s+2;</span><br/><span class="line">System.out.println(a);//输出5</span><br/><span class="line">short b = 4;</span><br/><span class="line green">//用+=、-=、*=、/=、%=这些赋值扩展符，进行运算，低位的b可以接收住的（系统内部已经进行强制转换了）</span><br/><span class="line">b+=4;<span class="green">//注意：与b = b+4是不同的</span></span><br/><span class="line">System.out.println(b);//输出8</span><br/><span class="line">int i = 1;</span><br/><span class="line">i+=0.1;</span><br/><span class="line green"><span class="green">//i为整型，所以不是输出1.1</span></span><br/><span class="line">System.out.println(i);//输出1*/</span><br/><span class="line">/*int i = 1;</span><br/><span class="line">i *= 0.9;//i = 0</span><br/><span class="line">System.out.println(i);//输出0</span><br/><span class="line">i++;//内存中的i变成了1</span><br/><span class="line">System.out.println(i);//输出1*/</span><br/><span class="line">/*int a = 80;</span><br/><span class="line">if(a == 80){<span class="green">//注意：不能写成a = 80， 双等号是比较，单等号是赋值会报错：错误:不兼容的类型:int无法转换为boolean</span></span><br/><span class="line paddingleft1">System.out.println("你好");</span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("你不好");</span><br/><span class="line">}*/</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+						</ul>
+						<h4><span>三、比较运算符（关系运算符）</span></h4>
+						<ul>
+							<li>
+								比较运算符的结果都是boolean型，也就是要么是<span class="highlight">true</span>，要么是<span class="highlight">false</span>。
+								
+							</li>
+							<li>
+								<img src="images/bijiao.png" width="700" height="300" alt="suanshu"/>
+							</li>
+						</ul>
+						<h4><span>四、逻辑运算符</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">逻辑运算符用于连接布尔型表达式，在Java中不可以写成3&lt;x&lt;6，应该写成x>3 & x&lt;6 。</span>
+							</li>
+							<li>
+								<p class="highlight">&”和“&&”的区别：</p>
+								<p class="highlight">单&时，左边无论真假，右边都进行运算；</p>
+								<p class="highlight">双&时，如果左边为真，右边参与运算，如果左边为假，那么右边不参与运算。 </p>
+							</li>
+							<li>
+								<p class="highlight">|”和“||”的区别同理，||表示：当左边为真，右边不参与运算。而|左边为真，右边还是会参与的</p>
+							</li>
+							<li>
+								异或( ^ )与或( | )的不同之处是：<span class="highlight">当左右都为true时，结果为false</span>。
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span></pre>
+												</td>
+												<td class="code"><pre><span class="line green">/*</span><br/><span class="line">int a = 100;</span><br/><span class="line">int b = 22;</span><br/><span class="line">//双&时，如果左边为真，右边参与运算，如果左边为假，那么右边不参与运算。</span><br/><span class="line green">/*</span><br/><span class="line">if(a>100 && b>22){</span><br/><span class="line paddingleft1">System.out.println("进入了");</span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("没进入");<span class="green">//没进入</span></span><br/><span class="line">}</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">if(a>100 & b>22){</span><br/><span class="line paddingleft1">System.out.println("进入了");</span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("没进入");<span class="green">//没进入</span></span><br/><span class="line">}</span><br/><span class="line green">*/</span><br/><span class="line green">//单&时，左边无论真假，右边都进行运算；|和||的区别同理</span><br/><span class="line green">/*</span><br/><span class="line">if(a>100 & (b/0)==1){<span class="line green">//编译时没报错，执行时报错：Exception in thread "main" java.lang.ArithmeticException:/ by zero</span></span><br/><span class="line paddingleft1">System.out.println("进入了");</span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("没进入");<span class="green">//没进入</span></span><br/><span class="line">}</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">int d = 10;</span><br/><span class="line">float f = 10.0f;</span><br/><span class="line green">//当是不同基础数据类型进行比较时，只是比较值，不比较数据类型；如果是基础数据类型值比较==，值相等那么都是true,如果是封装数据类型都是false</span></span><br/><span class="line">if(d = f){</span><br/><span class="line paddingleft1">System.out.println("相等");<span class="green">//相等</span></span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("不相等");</span><br/><span class="line">}</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">int a = 20;</span><br/><span class="line">int b = 30;</span><br/><span class="line green">//boolean值 ^ boolean值，当^（异或）两边的布尔值相同时，整体为false，不同时，整体为true</span><br/><span class="line">if(a == 20 ^ b == 30){</span><br/><span class="line paddingleft1">System.out.println("进入了");</span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("没进入");<span class="green">//没进入</span></span><br/><span class="line">}</span><br/><span class="line">if(a < 20 ^ b == 30){</span><br/><span class="line paddingleft1">System.out.println("进入了");//<span class="green">进入了</span></span><br/><span class="line">}else{</span><br/><span class="line paddingleft1">System.out.println("没进入");</span><br/><span class="line">}</span><br/><span class="line green">*/</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>	
+							</li>
+						</ul>
+						<h4><span>五、位运算符</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">注意了：&、|、^这些符号两边都为boolean值时，是属于逻辑运算符，两边为数字时，属于位运算符</span>
+							</li>
+							<li>
+								<p class="highlight">参与位运算符的数字，一定要进行二进制的换算然后再运算</p>
+							</li>
+							<li>
+								<p class="highlight">&表示按位与，两个同时为1返回1，其它都是0</p>
+							</li>
+							<li>
+								<p class="highlight">|表示按位或，如果两个有一个1就是1，否则都是0</p>
+							</li>
+							<li>
+								<p class="highlight">^表示按位异或，两个相同返回0，否则返回1</p>
+							</li>
+							<li>
+								<p class="highlight">&lt;&lt;表示左移位（5&lt;&lt;3） >>表示右移位</p>
+							</li>
+							<li>
+								<p class="highlight">~取反运算符，若n>0   ~n =-(n+1) </p>
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span></pre>
+												</td>
+												<td class="code"><pre><span class="line green">/*</span><br/><span class="line">int a = 2;<span class="green">//0010</span></span><br/><span class="line">int b = 3;<span class="green">//0011</span></span><br/><span class="line">System.out.println(a & b);<span class="green">//输出2，0010 == 2</span></span><br/><span class="line">System.out.println(a | b);<span class="green">//输出3，0011 == 3</span></span><br/><span class="line">System.out.println(a ^ b);<span class="green">//输出3，0001 == 1*/</span></span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+						</ul>
+						<h4><span>六、三元运算符</span></h4>
+						<ul>
+							<li>
+								<p>格式:</p>
+								<p>(条件表达式)? 表达式1：表达式2；</p>
+								<p>为true，运算后的结果是表达式1；</p>
+								<p>为false，运算后的结果是表达式2；</p>
+							</li>
+							<li>
+								<p>表达式1和表达式2为同种类型</p>
+								<p>三元运算符与if-else的联系与区别：</p>
+								<p class="highlight">1）三元运算符可简化if-else语句</p>
+								<p class="highlight">2）三元运算符要求必须返回一个结果。boolen</p>
+								<p class="highlight">3）if后的代码块可有多个语句</p>
+							</li>
+						</ul>
+						<h4><span>程序流程控制</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">顺序结构</span>：程序从上到下逐行地执行，中间没有任何判断和跳转。<br/>
+								<img src="images/shunxu.png" width="700" height="300" alt="suanshu"/>
+							</li>
+							<li>
+								<span class="highlight">分支结构</span>：根据条件，选择性地执行某段代码。有<code>if…else</code>和<code>switch</code>两种分支语句。
+							</li>
+							<li>
+								switch(表达式)中表达式的返回值必须是下述几种类型之一：<br/>byte，short，char，int，枚举，String；
+							</li>
+							<li>
+								case子句中的值必须是常量，且所有case子句中的值应是不同的；
+							</li>
+							<li>
+								default子句是可任选的，当没有匹配的case时，执default
+							</li>
+							<li>
+								break语句用来在执行完一个case分支后使程序跳出switch语句块；如果没有break，程序会顺序执行到switch结尾<br/>
+								<img src="images/switch.png" width="300" height="400" alt="suanshu"/>
+								<img src="images/if.png" width="700" height="300" alt="suanshu"/>
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span></pre>
+												</td>
+												<td class="code"><pre><span class="line">/*</span><br/><span class="line">int a = 4;</span><br/><span class="line">switch(a){</span><br/><span class="line paddingleft1">case 1:<span class="green">//必须填的是一个常量</span></span><br/><span class="line paddingleft2">System.out.println("1");</span><br/><span class="line paddingleft1">break;<span class="green">//没有break会将后面的也一起打印出来，直到遇到break才会跳出来</span></span><br/><span class="line paddingleft1">case 3:</span><br/><span class="line paddingleft2">System.out.println("3");</span><br/><span class="line paddingleft1">break;</span><br/><span class="line paddingleft1">case 4:</span><br/><span class="line paddingleft2">System.out.println("4");</span><br/><span class="line paddingleft1">break;</span><br/><span class="line paddingleft1">case 5:</span><br/><span class="line paddingleft2">System.out.println("5");</span><br/><span class="line paddingleft1">break;</span><br/><span class="line paddingleft1">default:<span class="green">//如果以上都不满足，就执行这句代码，这句代码可以不写</span></span><br/><span class="line paddingleft2">System.out.println("为其他数");</span><br/><span class="line">}</span><br/><span class="line green">*/</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+							<li>
+								<span class="highlight">循环结构</span>：根据循环条件，重复性的执行某段代码。有<code>while</code>、<code>do…while</code>、<code>for</code>三种循环语句。<span class="highlight">注：JDK1.5提供了<code>foreach</code>循环，方便的遍历集合、数组元素。</span>
+							</li>
+							<li>
+								<span class="highlight">循环语句分类</span>：for循环、while循环、do/while循环 
+							</li>
+							<li>
+								<span class="highlight">break只能用于switch语句和循环语句中。</span> 
+							</li>
+							<li>
+								<span class="highlight">continue 只能用于循环语句中。</span>
+							</li>
+							<li>
+								<span class="highlight">二者功能类似，但continue是终止本次循环，break是终止本层循环。</span> 
+							</li>
+							<li>
+								<span class="highlight">与break和continue不同的是，return直接结束整个方法，不管这个return处于多少层循环之内，并非专门用于结束循环的，它的功能是结束一个方法。当一个方法执行到一个return语句时，这个方法将被结束。</span>
+							</li>
+							<li>
+								<span class="highlight">break、continue之后不能有其他的语句，因为程序永远不会执行其后的语句。</span> 
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span></pre>
+												</td>
+												<td class="code">
+													<pre><span class="line green">/*</span><br/><span class="green">for循环的执行步骤：</span><br/><span class="green">1.初始化部分：int i = 0</span><br/><span class="green">2.循环条件部分：i < 10</span><br/><span class="green">3.循环体部分：System.out.println(i)</span><br/><span class="green">4.迭代部分：i++</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">for(int i = 0;i < 10;i++){<span class="line green">//i为局部变量</span></span><br/><span class="line paddingleft1">if(i == 4){</span><br/><span class="line paddingleft2">break;<span class="line green">//跳出循环</span></span><br/><span class="line paddingleft1">}</span><br/><span class="paddingleft1 line">System.out.println(i);<span class="green">//0,1,2,3,</span></span><br/><span class="line">}</span><br/><span class="green paddingleft1">//System.out.println(i);//报错，这里的i属于局部变量*/</span></span><br/><span class="line green">/*</span><br/><span class="line">for(int i = 0;i < 5;i++){</span><br/><span class="line paddingleft1">if(i == 3){</span><br/><span class="paddingleft2 green">//return;//注意：return不是用来跳出循环的~而是用于方法中代码的调试和返回的</span><br/><span class="line paddingleft2">continue;<span class="line green">//跳出当前次循环</span></span><br/><span class="line paddingleft1">}</span><br/><span class="line paddingleft1">System.out.println(i);<span class="green">//0,1,2,4</span></span><br/><span class="line">}</span><br/><span class="line green">*/</span><br/><span class="line green">/*</span><br/><span class="line">int a = 0;</span><br/><span class="line">while(a < 10){</span><br/><span class="line paddingleft1">a++;<span class="green">//放在这里：输出1,2,3,4,5,6,7,8,9,10</span></span><br/><span class="line paddingleft1">System.out.println(a);</span><br/><span class="line paddingleft1 green">//a++;<span class="green">//放在这里：输出0,1,2,3,4,5,6,7,8,9</span></span><br/><span class="line">}</span><br/><span class="line green">*/</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+						</ul>
+						<h4><span>第三节课后作业</span></h4>
+						<ul>
+							<li>
+								九九乘法表：
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span></pre>
+												<td>
+												<td class="code"><pre><span class="line">public class Three</span><br/><span class="line">{</span><br/><span class="line paddingleft1">public static void main(String[] args){</span><br/><span class="line paddingleft2 green">//九九乘法表</span><br/><span class="line paddingleft2">System.out.println("正序：");</span><br/><span class="line paddingleft2">for(int i=1;i&lt;=9;i++){</span><br/><span class="line paddingleft2" style="padding-left:5em;">for(int j=1;j&lt;=i;j++){</span><br/><span class="line paddingleft2" style="padding-left:7em;">System.out.print(j+"*"+i+"="+(i*j)+"\t");</span><br/><span class="line paddingleft2" style="padding-left:5em;">}</span><br/><span class="line paddingleft2" style="padding-left:5em;">System.out.println("");</span><br/><span class="line paddingleft2">}</span><br/><span class="line paddingleft2">System.out.println("倒序：");</span><br/><span class="line paddingleft2">for(int i=9;i>=1;i--){</span><br/><span class="line paddingleft2" style="padding-left:5em;">for(int j=1;j&lt;=i;j++){</span><br/><span class="line paddingleft2" style="padding-left:7em;">System.out.print(j+"*"+i+"="+(i*j)+"\t");</span><br/><span class="line paddingleft2" style="padding-left:5em;">}</span><br/><span class="line paddingleft2" style="padding-left:5em;">System.out.println("");</span><br/><span class="line paddingleft2">}</span><br/><span class="line paddingleft1">}</span><br/>}</pre></td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+							<li>
+								结果如下：
+								<img src="images/jiujiu.png" width="655" height="399" alt="jiujiu" />
+							</li>
+							<li>
+								两个数字交换：
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span></pre>
+												<td>
+												<td class="code"><pre><span class="line">public class Three</span><br/><span class="line">{</span><br/><span class="line paddingleft1">public static void main(String[] args){</span><br/><span class="line paddingleft2 green">//两个数字交换方法一：</span><br/><span class="line paddingleft2">int a = 10;</span><br/><span class="line paddingleft2">int b = 44;</span><br/><span class="line paddingleft2">int c;</span><br/><span class="line paddingleft2">c = a;//c = 10;</span><br/><span class="line paddingleft2">a = b;//a = 44;</span><br/><span class="line paddingleft2">b = c;//b = 10;</span><br/><span class="line paddingleft2">System.out.println(a+"==="+b+"==="+c);<span class="green">//结果：44===10===10</span></span><br/><span class="line paddingleft2 green">//两个数字交换方法二：</span><br/><span class="line paddingleft2">/*int a = 10;</span><br/><span class="line paddingleft2">int b = 44;</span><br/><span class="line paddingleft2">a = a + b;//a = 44 + 10 = 55</span><br/><span class="line paddingleft2">b = a - b;//b = 54 - 44 = 10</span><br/><span class="line paddingleft2">a = a - b;//a = 55 - 10 = 44</span><br/><span class="line paddingleft2">System.out.println(a+"==="+b);<span class="green">//结果：44===10*/</span></span><br/><span class="line paddingleft1">}</span><br/>}</pre></td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</div>
+		</div>
+		<div id="to-top">	
+		</div>
+		<!-- end mid-col -->
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript">
+		//置顶
+		$(function(){
+			var $toTop = $("#to-top");
+			var timer = setInterval(function(){
+				$(document).scrollTop(0);
+				if($(document).scrollTop() == 0){
+					clearInterval(timer);
+				};
+			},20);
+			$(window).on("scroll",function(){
+				if($(document).scrollTop()>300){
+					$toTop.show();
+				}else{
+					$toTop.hide();
+				};
+			});
+			$toTop.click(function(){
+				$("html,body").stop(true).animate({scrollTop:0},600);
+			});
+		});
+	</script>
+</body>
+</html>

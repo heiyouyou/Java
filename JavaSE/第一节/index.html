@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>JavaSe作业首页</title>
+<style type="text/css">
+	* {margin:0;padding:0;}
+	body{font-size:12px;font-family:Lato,"Microsoft Jhenghei","Hiragino Sans GB","Microsoft YaHei",sans-serif;background-color:#dda;}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	img{vertical-align:top;}
+	/*container start*/
+	.container{width:900px;margin:30px auto;}
+	.header{background-color:#222;text-align:center;color:#fff;padding:1.5em;border-top-left-radius:1rem;border-top-right-radius:1rem;}
+	h1{font-size:3em;margin:.67em 0;}
+	nav{background-color:#444;color:#fff;padding-left:85px;}
+	nav .nav-list{overflow:hidden;}
+	nav .nav-list li{float:left;padding:15px 10px;text-align:center;}
+	nav .nav-list li a.nav-link{color:#fff;padding:5px 25px;font-size:18px;}
+	nav .nav-list li a.nav-link:hover{text-decoration:underline;}
+	.common-page{padding:2em;background-color:#fff;border-bottom-left-radius:1em;border-bottom-right-radius:1em;}
+	h2{font-size:1.7em;padding:25px 0;}
+	blockquote{padding:10px 20px;margin:10px 0 20px;font-size:17.5px;border-left:5px solid #eee;}
+	p{line-height:2em;font-size:17.5px;}
+	.highlight{color:#f92672;}
+	.img{background:#fff;padding:0 5px;border:1px solid transparent;}
+	img{vertical-align:middle;}
+	.guide{display:inline-block;font-size:18px;color:#111;margin:80px 10px 0;}
+	#to-top{width:36px;height:36px;position:fixed;bottom:40px;right:40px;background:url(images/icon-to-top.png) no-repeat;background-position:-38px 0;cursor:pointer;display:none;}
+	#to-top:hover{background-position:0 0;}
+	.highlight-p{color:#a6e22e;}
+	/*end container*/
+	/*滚动条增强版样式兼容*/
+	::-webkit-scrollbar{width:10px;height:6px;background:#ccc;}
+	::-webkit-scrollbar-button{background-color:#e5e5e5;}
+	::-webkit-scrollbar-track{background:#999;}
+	::-webkit-scrollbar-track-piece{background:#ccc}
+	::-webkit-scrollbar-thumb{background:#666;}
+	::-webkit-scrollbar-corner{background:#82AFFF;}
+	::-webkit-scrollbar-resizer{background:#FF0BEE;}
+	scrollbar{-moz-appearance:none !important;background:rgb(0,255,0) !important;}
+	scrollbarbutton{-moz-appearance:none !important;background-color:rgb(0,0,255) !important;}
+	scrollbarbutton:hover{-moz-appearance:none !important;background-color:rgb(255,0,0) !important;}
+</style>
+</head>
+<body>
+	<!--container start-->
+	<div class="container">
+		<div class="header">
+			<h1>JavaSe第一节</h1>
+		</div>
+		<nav>
+			<ul class="nav-list">
+				<li><a href="javascript:void(0);" class="nav-link">首页</a></li>
+				<li><a href="javascript:void(0);" class="nav-link">JavaSe基础</a></li>
+				<li><a href="javascript:void(0);" class="nav-link">JavaSe进阶</a></li>
+				<li><a href="javascript:void(0);" class="nav-link">JavaSe高阶</a></li>	<li><a href="javascript:void(0);" class="nav-link">数据库</a></li>
+			</ul>
+		</nav>
+		<div class="common-page">
+			<h2>Java语言的历史</h2>
+			<blockquote><p><a href="http://baike.baidu.com/subview/29/12654100.htm" class="highlight" target="_blank">Java</a>是由<a href="http://baike.baidu.com/view/1061350.htm" class="highlight" target="_blank">Sun Microsystems</a>公司推出的Java面向对象程序设计语言（以下简称Java语言）和Java平台的总称。由<a href="http://baike.baidu.com/view/4814505.htm?fromtitle=James+Gosling&fromid=4616494&type=syn;" class="highlight" target="_blank">James Gosling</a>和同事们共同研发，并在1995年正式推出。Java最初被称为<a href="http://baike.baidu.com/view/180796.htm" class="highlight" target="_blank">Oak</a>，是1991年为消费类电子产品的嵌入式芯片而设计的。1995年更名为Java，并重新设计用于开发Internet应用程序。用Java实现的HotJava浏览器（支持Java applet）显示了Java的魅力：跨平台、动态Web、Internet计算。从此，Java被广泛接受并推动了Web的迅速发展，常用的浏览器均支持Javaapplet。另一方面，Java技术也不断更新。Java自面世后就非常流行，发展迅速，对C++语言形成有力冲击。在全球云计算和移动互联网的产业环境下，Java更具备了显著优势和广阔前景。2009年<a href="http://baike.baidu.com/view/22424.htm?fromtitle=Oracle&fromid=301207&type=syn" class="highlight" target="_blank">Oracle</a>公司收购<a href="http://baike.baidu.com/view/1061350.htm" class="highlight" target="_blank">Sun Microsystems</a>。</p></blockquote>
+			<h2>Java语言的特点</h2>
+			<blockquote>	
+				<p><a href="javascript:void(0);" class="highlight">1.完全面向对象：</a>所有的设计都必须在类中实现，一个Java程序就是多个类的集合。</p>
+				<p><a href="javascript:void(0);" class="highlight">2.安全性</a>：良好的安全模型，摒弃了其它语言的不安全成分。如字节码验证器对字节码的验证，放止其它非法代码侵入；内存空间不够、程序异常终止等的处理。</p>
+				<p><a href="javascript:void(0);" class="highlight">3.分布式：</a>直接支持分布式的网络应用，可实现高效的网络编程。</p>
+				<p><a href="javascript:void(0);" class="highlight">4.多线程：</a>多线程机制使得程序能够并行处理多项任务。例如一个线程负责数据的检索，一个线程与用户进行交互，两个线程并行执行。</p>
+				<p><a href="javascript:void(0);" class="highlight">5.平台无关性：</a>借助虚拟机，程序不经修改即可在不同硬件或软件平台上运行。</p>
+				<p><a href="javascript:void(0);" class="highlight">6.动态内存管理机制：</a>采用自动垃圾回收机制进行内存管理。可以自动、安全回收不再使用的内存块，减少了内存管理方面出错的可能性。</p>	
+			</blockquote>
+			<div class="img">
+				<img src="images/1.png" width="81" height="162" alt="java"/>
+				<span class="guide">》》》</span>
+				<img src="images/3.png" width="133" height="55" alt="javame" style="vertical-align:top;"/>
+				<span class="guide" style="transform:rotate(45deg);">《《《</span>
+				<img src="images/5.png" width="133" height="55" alt="javase"/>
+				<span class="guide" style="transform:rotate(-45deg);">》》》</span>
+				<img src="images/4.png" width="133" height="55" alt="javaee" style="vertical-align:top;"/>
+			</div>
+			<blockquote>
+				<p>Java分为三个体系，分别为：</p>
+				<p><a href="http://baike.baidu.com/view/160728.htm" class="highlight" target="_blank">Java SE</a>（J2SE，Java2 Platform Standard Edition，标准版）</p>
+				<p><a href="http://baike.baidu.com/view/1507.htm" class="highlight" target="_blank">Java EE</a>（J2EE，Java 2 Platform, Enterprise Edition，企业版）</p>
+				<p><a href="http://baike.baidu.com/view/943427.htm?fromtitle=j2me&fromid=204201&type=syn" class="highlight" target="_blank">Java ME</a>（J2ME，Java 2 Platform Micro Edition，微型版）</p>
+			</blockquote>
+			<h2>Java的编译与运行</h2>
+			<div class="img">
+				<img src="images/2.png" width="563" height="356" alt="java"/>
+				<img src="images/6.png" width="578" height="406" alt="java"/>
+			</div>
+			<blockquote>
+				<p>Java语言是比较特殊，有Java语言编写的程序需要经过编译，但是编译过程中不会生成特定的机器码，而是生成一种与平台无关的字节码，（也就是.class文件）,当然这种字节码不是可执行的，必须使用Java解析器来解释执行，因此可以认为：<span class="highlight">Java语言是编译型语言,也是解释型语言</span>。Java程序执行必须经过<span class="highlight">编译(javac)</span>和<span class="highlight">后解释(java)</span>两个步骤。</p>
+				<p>Java语言里负责解释执行字节码文件的是<a href="http://baike.baidu.com/link?url=n1_9sUdS6SNTzhz8jWPIihN39ys4RlkrQ6CQulQ0ZEDdsk_TDf_8exNOOKLTn-HAhTxwu7Gav-YLLQVkQKfYsK" class="highlight" target="_blank">Java虚拟机，即JVM(Java Virtutal Machine)</a>。JVM是可以运行字节码文件的虚拟计算机。所有平台上的JVM向编译器提供相同的编程接口。</p>
+				<p>JVM是一个抽象的计算机，和实际的计算机一样，它具有指令集并使用不同的存储区域，它赋值执行指令，管理数据，内存和寄存器等。</p>
+				<p><a href="http://baike.baidu.com/link?url=AkAZ4bDwTG6KhKZjVmxrmDh7cK8mW3-cLyHww7x-raHQU5wfs_6UqwZnGNqtd1c99dCSgcgtzHzkYo5KKMXy6_" class="highlight" target="_blank">编译型语言：</a>都需要编译以后才能运行，也就说如果编写任何一行新的代码都可能需要重新编译，然后在运行。注释除外 比如:java,c++,c,object-c
+				<a href="http://baike.baidu.com/link?url=O1pPBMHVfZiDmU24t-K1Pw1FgLtJ0QVJeq8RAvNdcL6Xu3rAKg20Eaa8N_8qfiNU5H-fWo9Ax9z3Qs_GkP6pmK" class="highlight" target="_blank">解释型语言：</a>不需要，比如：javascript /ruby/python</p>
+			</blockquote>
+			<h2>Java语言的应用</h2>
+			<blockquote>
+				<p>网站：主要使用JAVA EE开发，阿里巴巴、淘宝、支付宝，一号店，网易、搜狐、大众点评网，驴妈妈，人人网，去哪儿网,网银，电商 ，YY PC版等 ...</p>
+				<p>大型企业级应用：主要使用JAVA EE，比如企业管理系统</p>
+				<p>移动互联网： Android APP开发应用；</p>
+				<p>最典型应用:</p>
+				<p>&lt;1&gt; 有关通信及网络的企业：移动、联通、电信、网通主要的信息化:</p>
+				<p>&lt;2&gt; 有关金融行的大型企业，所有的银行、证券公司，比如工商银行、建设银行:</p>
+				<p>&lt;3&gt; 大型管理系统，如：供应链、客户管理系统……:</p>
+				<p>&lt;4&gt; 电子政务，主要使用JAVA EE，相关的政府部门绝大多数的信息化系统:</p>
+				<p>&lt;5&gt; 游戏，很多手机游戏都是用JAVA开发的。:</p>
+				<p>&lt;6&gt; 嵌入式设备及消费类电子产品，主要用 JAVA ME,无线手持设备、通信终端、医疗设备、信息家电（如数字电视、机顶盒、电冰箱）、汽车电子设备等是比较热门的Java应用领域:</p>
+			</blockquote>
+			<h2>Java的关键字</h2>
+			<div class="img">
+				<img src="images/7.png" width="729" height="350" alt="java"/>
+			</div>
+			<h2>什么是JDK？JVM？JRE</h2>
+			<blockquote>
+				<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" class="highlight" target="_blank">JDK</a>全称Java Se Development Kit,即Java标准开发包，是sun公司提供一套用于开发Java应用程序开发包，它提供了编译、运行Java程序所需的工具和资源，包括Java编译器，<span class="highlight">Java运行时候的环境（jre）</span>，以及常用的Java类库等。</p>
+				<p><a href="http://baike.baidu.com/link?url=D37xHPbvM_e8wnraP_QcOg7i2LBAGPRNCRu377y_tgOdF0p6MUStiDrYbT8ZucXitDvXtXZeVS0TZZgVxC7aVK" class="highlight" target="_blank">JRE</a>是包含JVM。JVM是运行Java核心的虚拟机。而运行Java核心程序不仅需要<a href="javascript:void(0);" class="highlight" target="_blank">核心虚拟机</a>，还需要其它的<a href="http://blog.csdn.net/gjanyanlig/article/details/6818655" class="highlight" target="_blank">类加载器</a>，<a href="http://blog.csdn.net/seacean2000/article/details/11516729" class="highlight" target="_blank">字节码校验器</a>以及大量的基础类库，故JRE除了JVM外，还包含运行Java程序的其他环境。</p>
+			</blockquote>
+			<h2>JDK的安装</h2>
+			<blockquote>
+				<p>jdk路径的介绍和说明：</p>
+				<p>jdk下载地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" class="highlight">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html。</a></p>
+				<p>jdk建议安装1.7版本~有良好的兼用性。</p>
+				<p>安装过程中最好不要使用空格路径，<span class="highlight">并且jre文件与jdk文件不要装在同一文件夹下</span>，防止被覆盖。</p>
+				<p>安装完成后，可在jdk安装路径下看到如下路径：</p>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">Bin</a>：该路径存放了JDK的工具工具命令，常用的javac和java等命令就放在这里已经应用程序的监控都在这里，编码的转码工具等。</p>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">Db</a>：改路径是安装javadb的路径。</p>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">Include</a>：一些平台的特定头文件。</p>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">Jre</a>：该路径下安装的就是运行java程序所必须的jre环境。</p>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">Lib</a>：该路径存放的是JDK工具命令实际执行程序，有tools.jar，javafx-src.zip，src.zip等。</p>
+			</blockquote>
+			<h2>Java环境变量的搭建</h2>
+				<p><a href="javascript:void(0);" class="highlight" target="_blank">环境变量</a>其中一种用户变量仅本用户适用，另一种即系统变量整个系统的用户都适用,两者都可以在使用应用程序时提供快捷。</p>
+				<p>简单的说就是，如果设置系统变量和用户变量，都叫做设置环境变量，设置系统变量时，该系统的所有帐号的用户都可以使用，但是设置用户变量时，其他的帐号登陆时就不一定可以使用。</p>
+				<p>配置环境目录就为了方便不需要切换可执行文件的目录下。方便我程序的执行和控制。配置环境变量就是为了让系统帮我们直接根据环境变量的参数直接帮我寻找可执行文件。主要是为了检索文件方便，如果执行某个文件，不用到文件所在目录执行，那么操作系统会在path路径中检索，windows操作系统特有的。</p>
+				<p><span class="highlight">用户变量和系统变量的区别是什么：<span></p>
+				<p>用户变量和系统变量其实都没什么差别，只是用户变量只针对当前用户有用。而系统变量针对所有用户有用，为了减少自己所做的修改对其他人的影响，固设置用户变量避免影响其他人。对于当前用户而言，设置用户变量和系统变量的效果是一样的。如果两个地方都配置了优先选择系统变量的配置。</p>
+			<blockquote>
+				<p><span class="highlight">第一步</span>：我的电脑右键--属性---高级系统设置</p>
+				<p><span class="highlight">第二步</span>：系统变量--新建--JAVA_HOME-你安装的JDK的目录--<span class="highlight">E:\Program Files\java\jdk1.8.0_73</span></p>
+				<p><span class="highlight">第三步</span>：选择系统变量中---Path--编辑--在PATH尾部添加如下代码：<span class="highlight">;%JAVA_HOME%\bin</span>,注意在添加之前一定要加一个分号分割</p>
+				<p><span class="highlight">第四步</span>：系统变量---新建--CLASSPATH,值为：<span class="highlight">.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar</span>注意前面有一个点。（CLASSPATH为类路径，是java运行时查找类文件的路径，jdk1.5之后可不配置）</p>
+				<p><span class="highlight">第五步</span>：打开窗口---点击运行--输入cmd打开命令窗口---输入<span class="highlight">java -version</span>命令，如下图：</p>
+			</blockquote>
+			<div class="img">
+				<img src="images/First1.png" width="618" height="196" alt="java"/>
+			</div>
+			<h2>我的第一个java程序</h2>
+			<p><span class="highlight">命令执行</span>：javac编译和java运行，例如：javac First.java&nbsp;&nbsp;&nbsp;&nbsp;java First</p>
+			<blockquote style="background:#232323;">
+				<p class="highlight-p">public class First{</p>
+					<p class="highlight-p" style="text-indent:2em;">public static void main(String[] args){</p>
+						<p class="highlight-p" style="text-indent:4em;">System.out.println("这是我的第一个java文件");</p>
+					<p class="highlight-p" style="text-indent:2em;">}</p>
+				<p class="highlight-p">}</p>
+			</blockquote>
+			<p>在cmd显示如下：</p>
+			<div class="img">
+				<img src="images/First.png" width="644" height="255" alt="java"/>
+			</div>
+			<h2>Java的命名规则</h2>
+			<blockquote>
+				<p>Java源文件程序的后缀必须是<span class="highlight">.java</span>，不能是其他的文件后缀名。</p>
+				<p>Java程序源文件可以是任意的，但是有一种情况例外，如果Java程序源代码里的类定义的是<span class="highlight">一个public类</span>，则<span class="highlight">该文件源文件名必须和类名一致</span>。由于Java程序源文件名必须和public类名相同，因此，一个Java源文件最多只能够定义一个public类。</p>
+				<p><span class="highlight">大小写是区分的。</span></p>
+				<p><span class="highlight">类名必须大写开头。</span></p>
+			</blockquote>
+			<h2>活法的有感而发</h2>
+			<blockquote>
+				<p style="text-indent:2em;">
+					人的一生有两种状态：1.碌碌无为；2.奋斗人生；我认为碌碌无为这种状态就如同行尸走肉般的存在，每天都为生活为担忧，即使是一点生活上的柴米油盐的事也会让这样的人感觉到人生的“苦逼”，所以我很不喜欢这样的状态也不喜欢与这样的人为伍，总是去抱怨生活的不公平，自己却不去做一件实实在在的事，那么生活的不公平永远只会出现在你的身上。
+				</p>
+				<p style="text-indent:2em;">
+					作为一名程序员，现在是我的学业，以后更是我的职业，处在这一个互联网信息快速发达的时代，人不去学习，只会越来越堕落，回归原始。所以我们应该要不断的去学习，每天要有所追求，<a href="http://baike.baidu.com/link?url=gmSXUqeBzmz-J72LuZ3lBGJ6o_NoubTuybMP_DqpAJM5sW1G69tnOw4KYc3P5s4ZPVQzgISXj0FkqP0rPXyoyNTD6VgUg2uvjzMoLgGQ2xG" target="_blank" style="color:#000;font-size:18px;font-weight:bold;">活法</a>里的一句话：<span class="highlight">“今天比昨天做得好，明天又比今天做得好，每天都付出真挚的努力、不懈的工作、扎实的行动、诚恳的修道，在这样的过程中就体现了我们人生的目的和价值。”</span>正是我们应该学习与奋斗的初衷。
+				</p>
+				<p style="text-indent:2em;">
+					做一名程序员，在学习过程其实不只是技术得到了提高和知识得到了充实，更重要的是磨练了一个人的心性；程序员学习的知识是很庞大的，每时每刻都得去留心这个行业技术的更新与发展。必然这个学习过程，肯定会有很多人感到压力山大，感到很浮躁、很烦恼，这种状态去学习就会让自己有这样的念头：“还是放弃吧~”，“这个还是不适合我做~~”，“我太笨了，这个都不会，果然还是放弃算了”，“好烦啊！！！”，其实这些念头我都有过，可是我此时此刻依然还在学习和敲代码中……，因为我坚持住了，抵住挡了诱惑，抵挡住了浮躁与烦恼，活法中的一句话：“<span class="highlight">人生不如意事十有八九。有时我们甚至怨恨神佛，为什么只让我经历那么多的苦难？但正是这些苦难才能磨练我们的灵魂，提升我们的人格。”</span>把苦难看作考验，看作机会，只有这样的人，才能在有限的人生中让自己的生命绽放光彩。
+				</p>
+				<p style="text-indent:2em;">
+					<span class="highlight">最后告诫自己和我一样有着理想的人：“人不能失去奋斗的初衷，不能急功近利，不能为了利益而丧失做人的单纯原理原则，活着就要感谢生活和出现在你身边的人和事物！！！”<span>
+				</p>
+			</blockquote>
+		<div>
+		<div id="to-top">	
+		</div>
+	</div>
+	<!-- end container -->
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $toTop = $("#to-top");
+			var timer = setInterval(function(){
+				$(document).scrollTop(0);
+				if($(document).scrollTop() == 0){
+					clearInterval(timer);
+				};
+			},20);
+			$(window).on("scroll",function(){
+				if($(document).scrollTop()>600){
+					$toTop.show();
+				}else{
+					$toTop.hide();
+				};
+			});
+			$toTop.click(function(){
+				$("html,body").stop(true).animate({scrollTop:0},600);
+			});
+		});
+	</script>
+</body>
+</html>

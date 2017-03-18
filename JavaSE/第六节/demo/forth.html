@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>JavaSe基础第四节</title>
+<link href="http://at.alicdn.com/t/font_1462372683_1439688.css" rel="stylesheet"/>
+<style type="text/css">
+	* {margin:0;padding:0;}
+	body{font-size:12px;font-family:"微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;background:#eaeaea;}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	img{vertical-align:top;}
+	.paddingleft1{padding-left:2em;}
+	.paddingleft2{padding-left:3.5em;}
+	.highlight{color:#f92672;}
+	.green{color:green;}
+	.container{position:relative;min-height:100%;}
+	/*mid-col start*/
+	.container .mid-col{position:absolute;right:0;width:100%;min-height:100%;background-color:#eaeaea;}
+	.container .mid-col .body-wrap{margin-bottom:80px;}
+	.container .mid-col .body-wrap article{min-height:346px;background:#fff;margin:60px;border:1px solid #ddd;position:relative;}
+	.container .mid-col .body-wrap article:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);transition:all .2s linear;}
+	.container .mid-col .body-wrap article .article-header{border-left:5px solid rgba(0,0,0,.7);padding:15px 0px 15px 25px;}
+	.container .mid-col .body-wrap article .article-header h1{font-size:1.5em;}
+	.container .mid-col .body-wrap article .article-header .article-title{color:#696969;font-size:26px;line-height:35px;font-weight:300;margin-bottom:20px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-header .article-title:hover{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-meta{position:absolute;top:23px;right:0;width:150px;text-align:center;}
+	.container .mid-col .body-wrap article .article-meta time{color:#aaa;font-size:16px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-meta i.time{color:#aaa;}
+	.container .mid-col .body-wrap article .article-meta:hover time{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-entry{padding:0 30px;line-height:1.8em;}
+	.container .mid-col .body-wrap article .article-entry h4{font-size:1.3em;color:#574c4c;font-weight:500;border-bottom:1px solid #ddd;margin-top:20px;padding-bottom:5px;}
+	.container .mid-col .body-wrap article .article-entry ul{margin:10px 0px;font-size:14px;color:rgba(99, 96, 96, 0.9);}
+	.container .mid-col .body-wrap article .article-entry ul li{line-height:30px;}
+	.container .mid-col .body-wrap article .article-entry ul li:before{content:"";display:inline-block;float:left;width:6px;height:6px;margin-top:11px;margin-right:10px;background:#aaa;border:1px solid #999;border-radius:10px;}
+	.container .mid-col .body-wrap article .article-entry ul li code{padding:1px 3px;margin:0 3px;background:#ddd;border:1px solid #ccc;font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;word-wrap: break-word;font-size:14px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index{padding-top:20px;margin:30px 30px 0 30px;border-top:1px solid #ddd;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link{margin-top:5px;text-align:right;height:45px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a{color:#fff;font-size:12px;background:#4d4d4d;padding:2px 8px 4px;border-radius:2px;transition:background 0.3s;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a:hover{background:#3c3c3c;}
+	.article-entry figure{max-height:400px;border-radius:4px;background:#272822;margin:10px 0;padding: 10px 10px;overflow:auto;color:#4c4c4c;}
+	.article-entry figure table{border-collapse:collapse;width:auto;vertical-align:middle;border-spacing:0;}
+	.article-entry figure table .line{font-size:15px;line-height:20px;}
+	.article-entry figure table td.gutter{padding-right:20px;text-align:right;color:#666;}
+	.article-entry figure table td pre{font-family:"Source Code Pro",Consolas,Monaco,Menlo,Consolas,monospace;}
+	.article-entry figure table td.code pre{color:#fff;}
+	#to-top{width:36px;height:36px;position:fixed;bottom:40px;right:20px;background:url(images/icon-to-top.png) no-repeat;background-position:-38px 0;cursor:pointer;display:none;}
+	#to-top:hover{background-position:0 0;}
+	/*end mid-col*/
+</style>
+</head>
+<body>
+	<div class="container">
+		<!-- mid-col start -->
+		<div class="mid-col">
+			<div class="body-wrap">
+				<article>
+					<div class="article-meta">
+						<a href="javascript:void(0);" target="_blank" class="article-date">
+							<i class="iconfont time">&#xe600;</i>
+							<time>2016-05-09</time>
+						</a>
+					</div>
+					<header class="article-header">
+						<h1><a class="article-title" href="javascript:void(0);">JavaSe基础第四节</a></h1>
+					</header>
+					<div class="article-entry">
+						<h4><span>Java数组</span></h4>
+						<ul>
+							<li>
+								数组是多个相同类型数据的组合，实现对这些数据的统一管理。
+							</li>
+							<li>
+								数组中的元素可以是任何数据类型，包括基本数据类型和引用数据类型。
+							</li>
+							<li>
+								数组属引用类型，数组型数据是对象(object)，数组中的每个元素相当于该对象的成员变量。
+							</li>
+						</ul>
+						<h4><span>一、一维数组声明式</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">type var[] 或 type[]  var；如：</span><code>int arr[]</code><code>int[] arr</code><code>String[] arr</code>
+							</li>
+							<li>
+								<span class="highlight">Java语言中声明数组时不能指定其长度(数组中元素的数)如：</span><code>int a[5];非法表达式</code>
+							</li>
+						</ul>
+						<h4><span>二、一维数组初始化</span></h4>
+						<ul>
+							<li>
+								<span class="highlight">动态初始化</span>：数组声明且为数组元素分配空间与赋值的操作分开进行。
+							</li>
+							<li>分配空间：<code>int[] arr = new int[3]</code>;</li>
+							<li>赋值：<code>arr[0] = 3</code>;<code>arr[1] = 9</code>;<code>arr[2] = 8</code>;</li>
+							<li>
+								<span class="highlight">静态初始化：</span>在定义数组的同时就为数组元素分配空间并赋值
+							</li>
+							<li><code>int a[] = new int[]{3,9,8}</code>;或者<code>int[] a = {3,9,8}</code>;<span class="highlight">后者只有一维数组可以这样子表示</span></li>
+							<li><span class="highlight">注意：动态初始化一定要写维度（长度），而静态从初始化不需要写维度</span></li>
+						</ul>
+						<h4><span>三、数组元素的引用</span></h4>
+						<ul>
+							<li>
+								定义并用运算符new为之分配空间后，才可以引用数组中的每个元素；
+							</li>
+							<li>
+								数组元素的引用方式：数组名[数组元素下标]
+							</li>
+							<li>
+								数组元素下标可以是<span class="highlight">整型常量或整型表达式</span>。如：a[3]，b[i]，c[6*i]；
+							</li>
+							<li>
+								数组元素下标从0开始；长度为n的数组合法下标取值范围:<span class="highlight"> 0 —>n-1</span>，如：<code>int a[] = new int[3]</code>；可引用的数组元素为a[0]、a[1]、a[2]
+							</li>
+							<li>
+								每个数组都有一个属性length指明它的长度，例如：<code>a.length</code>指明数组a的长度(元素个数)，<span class="highlight">不是<code>a.length()</code></span>
+							</li>
+							<li>
+								<span class="highlight">数组一旦初始化，其长度是不可变的。</span>
+							</li>
+						</ul>
+						<h4><span>四、二维数组</span></h4>
+						<ul>
+							<li>
+								格式1（动态初始化）：<code>int[][] arr = new int[3][2]</code>;
+								<p>1.定义了名称为arr的二维数组</p>
+								<p>2. ~[3][2]表示：二维数组中有3个一维数组，<span class="highlight">arr[i]就是指向一维数组的内存地址</span></p>
+								<p>3.~[2]表示：每一个一维数组中有2个元素</p>
+								<p>4.一维数组的名称分别为arr[0], arr[1], arr[2]</p>
+								<p>5. 给第一个一维数组下标为1的位置赋值为78写法是：<code>arr[0][1] = 78</code>；</p>
+							</li>
+							<li>
+								格式2（动态初始化）：int[][] arr = new int[3][];
+								<p>1.arr[i][]表示：<span class="highlight">每个一维数组都是默认初始化值null(注意：区别于以上格式1）如：<code>System.out.printl(arr[2][1])//报错：java.lang.NullPointerException（空指针异常）</code></span></p>
+								<p>2.可以对这个三个一维数组分别进行初始化：<code>arr[0] = new int[3]</code>；<code>arr[1] = new int[1]</code>；<code>arr[2] = new int[2]</code>；<span class="highlight">注：<code>arr[1] = {1,4,5,6};//报错</code><code>int[][]arr = new int[][3];</code>//非法</span></p>
+							</li>
+							<li>
+								格式3（静态初始化）：<code>int[][] arr = new int[][]{{3,8,2},{2,7},{9,0,1,6}};</code><span class="highlight">也可以这样：<code>int arr1[][] = {{1,5,6},{2,2},{4,6,7}};</code></span>
+								<p>1.定义一个名称为arr的二维数组，二维数组中有三个一维数组</p>
+								<p>2.每一个一维数组中具体元素也都已初始化</p>
+								<p>3.第一个一维数组表示方式：<code>arr[0] = {3,8,2};</code></p>
+								<p>4.第二个一维数组表示方式：<code>arr[1] = {2,7};</code></p>
+								<p>5.第三个一维数组表示方式：<code>arr[2] = {9,0,1,6};</code></p>
+								<p>4.第i个一维数组的长度表示方式：<code>第三个一维数组的长度表示方式：arr[i].length;</code></p>
+							</li>
+							<li><span class="highlight">注意特殊写法情况：int[] x,y[]; x是一维数组，y是二维数组。</span></li>
+						</ul>
+						<h4><span>第四节课后作业</span></h4>
+						<ul>
+							<li>
+								人员信息打印方法一：
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span></pre>
+												<td>
+											<td class="code"><pre><span class="line green">//做法一：</span><br/><span class="line">Scanner input = new Scanner(System.in);</span><br/><span class="line">System.out.println("请输入要录入信息的人数：");</span><br/><span class="line">int num = input.nextInt();</span><br/><span class="line">String[][] arr = new String[num][];</span><br/><span class="line">for(int i =0;i&lt;arr.length;i++){</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的姓名：");</span><br/><span class="line paddingleft1">String name = input.next();</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的年龄：");</span><br/><span class="line paddingleft1">String age = input.next();</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的身高：");</span><br/><span class="line paddingleft1">String height = input.next();</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的性别：");</span><br/><span class="line paddingleft1">String sex = input.next();</span><br/><span class="line paddingleft1">arr[i] = new String[]{name,age,height,sex};<span class="line"></span><br/><span class="line">}</span><br/><span class="line">System.out.println("=====================");<span class="line">System.out.println("编号\t姓名\t年龄\t身高\t性别\t");</span><br/><span class="line">for(int i=0;i&lt;arr.length;i++){</span><br/><span class="line paddingleft1">System.out.println((i+1)+"\t"+arr[i][0]+"\t"+arr[i][1]+"\t"+arr[i][2]+"\t"+arr[i][3]+"\t");</span><br/><span class="line">}</span></pre>
+											</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+							<li>
+								结果如：
+								<img src="images/数组.png" width="542" height="237" alt="jiujiu" />
+							</li>
+							<li>
+								人员信息打印方法二：
+								<figure>
+									<table>
+										<tbody>
+											<tr>
+												<td class="gutter">
+													<pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span></pre>
+												<td>
+												<td class="code"><pre><span class="line green">//做法二：</span><br/><span class="line">Scanner input = new Scanner(System.in);</span><br/><span class="line">System.out.println("请输入要录入信息的人数：");</span><br/><span class="line">int num = input.nextInt();</span><br/><span class="line green">//人数数组</span><br/><span class="line">int[] arr = new int[num];</span><br/><span class="line green">//名字数组</span><br/><span class="line">String[] nameArr = new String[num];</span><br/><span class="line green">//年龄数组</span><br/><span class="line">int[] ageArr = new int[num];</span><br/><span class="line green">//身高数组</span><br/><span class="line">double[] heightArr = new double[num];</span><br/><span class="line green">//性别数组</span><br/><span class="line">String[] sexArr = new String[num];</span><br/><span class="line">for(int i=0;i&lt;arr.length;i++){</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的姓名：");</span><br/><span class="line paddingleft1">String name = input.next();</span><br/><span class="line paddingleft1">nameArr[i] = name;</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的年龄：");</span><br/><span class="line paddingleft1">int age = input.nextInt();</span><br/><span class="line paddingleft1">ageArr[i] = age;System.out.print("请输入第"+(i+1)+"个人员的身高：");</span><br/><span class="line paddingleft1">double height = input.nextDouble();</span><br/><span class="line paddingleft1">heightArr[i] = height;</span><br/><span class="line paddingleft1">System.out.print("请输入第"+(i+1)+"个人员的性别：");</span><br/><span class="line paddingleft1">String sex = input.next();</span><br/><span class="line paddingleft1">sexArr[i] = sex;</span><br/><span class="line paddingleft1">System.out.println("&lt;------------&gt;");</span><br/><span class="line">}</span><br/><span class="line">System.out.println("&lt;------------&gt;");</span><br/><span class="line">for(int i=0;i&lt;arr.length;i++){</span><br/><span class="line paddingleft1">System.out.println("第"+(i+1)+"个人员的姓名："+nameArr[i]+"\n年龄："+ageArr[i]+"\n身高："+heightArr[i]+"cm\n性别："+sexArr[i]);</span><br/><span class="line paddingleft1">System.out.println("&lt;------------&gt;");</span><br/><span class="line">}</span></pre>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+							</li>
+							<li>
+								结果如：
+								<img src="images/数组1.png" width="309" height="378" alt="jiujiu" />
+							</li>
+						</ul>
+					</div>
+				</article>
+			</div>
+		</div>
+		<div id="to-top">	
+		</div>
+		<!-- end mid-col -->
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript">
+		//置顶
+		$(function(){
+			var $toTop = $("#to-top");
+			var timer = setInterval(function(){
+				$(document).scrollTop(0);
+				if($(document).scrollTop() == 0){
+					clearInterval(timer);
+				};
+			},20);
+			$(window).on("scroll",function(){
+				if($(document).scrollTop()>300){
+					$toTop.show();
+				}else{
+					$toTop.hide();
+				};
+			});
+			$toTop.click(function(){
+				$("html,body").stop(true).animate({scrollTop:0},600);
+			});
+		});
+	</script>
+</body>
+</html>

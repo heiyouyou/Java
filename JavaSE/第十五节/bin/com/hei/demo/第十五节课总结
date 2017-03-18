@@ -1,0 +1,95 @@
+一、	
+HashMap以键值对的形式存储元素；
+对于HashMap来说，不存在索引，也就是说不可以通过索引来访问元素，只能通过键去访问值
+由于没有索引，所以HashMap中元素的存放是没有顺序的；
+HashMap类继承了AbstractMap类，并实现了Map接口。
+
+二、
+key（键对象）由Set维护关系(key不重复且可以为null)，value（值对象）由LinkedList去维护关系（可以重复也可以值为null）
+键值相同的键对象，后面的键值会将前面的覆盖掉，而且值对象也会被覆盖掉
+
+三、
+HashMap类的常用方法：
+boolean isEmpty()判断HashMap对象是否为空，为空返回true，否则返回false
+int size()返回HashMap对象的大小，即元素的个数
+keySet()返回的是一个由键值对象组成的Set集合
+Object get(Object key)通过键对象查找相对应的值对象
+Object remove(Object key)通过键对象删除相对应的值对象，并且返回删除的对象
+boolean containsKey(Object key)查找指定的键对象在HashMap对象中是否存在，存在返回true
+boolean containsValue(Object value)查找指定的值对象在HashMap对象中是否存在，存在返回true
+void clear()清空HashMap对象中的所有元素
+Collection<E> values()返回的是由HashMap集合中的值对象组成的一个Collection集合
+map.entrySet()返回的由键和值对象组成的一个类型为Map.Entry()接口的Set集合
+
+四、
+Map类注意点：
+LinkedHashMap与HashMap的唯一区别就是：前者属于什么顺序添加元素就什么顺序输出，而后者属于无序输出
+TreeMap集合默认以key值升序的形式进行输出
+如果在Treemap里面想按照value进行排序，我们必须借助工具类Collections.sort(List,Comparator);
+
+五、API之java.io包：
+java.io包也是Java内置的包，其中包含一系列对文件和目录的属性进行操作，对文件进行读写操作的类；
+程序中如果要使用到该包中的类，对文件或流进行操作，则必须显式地声明如下语句：
+import java.io.*;
+
+六、
+File类的对象不但可以表示文件，还可以表示目录，在程序中一个File类对象可以代表一个文件或目录；
+当创建一个文件对象后，就可以利用它来对文件或目录的属性进行操作，如：文件名、最后修改日期、文件大小等等；
+需要注意的是，File对象并不能直接对文件进行读/写操作，只能查看文件的属性；
+
+File类的构造方法有4种重载方式，常用的如下：
+File(String pathname)指定文件（或目录）名和路径创建文件对象
+
+//路径可以使用两个反斜杠隔开（但是在linux服务器上不支持）
+File file = new File("e:\\File\\1.txt");
+
+//路径也可以使用一个正斜杠隔开（linux服务器上也支持）
+File file = new File("e:/File/1.txt");
+
+七、
+File类的常用方法：
+boolean exists()判断文件是否存在，存在返回true，否则返回false
+boolean isFile()判断是否为文件，是文件返回true，否则返回false
+boolean isDirectory()判断是否为目录，是目录返回true，否则返回false
+String getName()获得文件的名称
+String getAbsolutePath()获得文件的绝对路径
+long length()获得文件的长度（字节数）
+boolean createNewFile() throws IOException创建新文件，创建成功返回true，否则返回false，有可能抛出IOException异常，必须捕捉
+boolean delete()删除文件，删除成功返回true，否则返回false
+File[] listFiles()返回文件夹内的子文件与子文件夹的数组
+String list()返回的是一个当前文件对象下所有子文件和子文件夹的名称字符串数组
+long lastModified()返回此抽象路径名表示的文件最后一次被修改的时间。
+boolean isHidden()测试此抽象路径名指定的文件是否是一个隐藏文件。是隐藏文件就返回true
+boolean canWrite()测试应用程序是否可以修改此抽象路径名表示的文件。可以修改就返回true
+boolean canRead()测试应用程序是否可以读取此抽象路径名表示的文件。可以读取就返回true
+File getParentFile()返回此抽象路径名父目录的抽象路径名；如果此路径名没有指定父目录，则返回 null。
+String getParent()返回此抽象路径名父目录的路径名字符串；如果此路径名没有指定父目录，则返回 null。
+String getPath()与String getAbsolutePath()方法一样都是获取绝对路径
+mkdir()只能用来创建单个文件夹，即使填的是文件路径也是创建出单个文件夹来
+mkdirs()只能用来创建多个文件夹，即使填的是文件路径也是创建出多个文件夹来
+boolean delete()删除路径最深的文件或者文件夹，删除成功返回true，否则返回false
+
+八、常用的几种Map集合循环：
+1.普通循环
+for(String key : map.keySet()){
+//	Object get(Object key)通过键对象查找相对应的值对象
+	System.out.println("Mapd的key为："+key+"值为："+map.get(key));
+}
+
+2.迭代器循环输出HashMap集合的元素对象
+//通过keySet()拿到每个键对象放在Set集合中
+Set<String> keySet = map.keySet();
+//调用iterator()，注意Map集合类没有迭代器的方法，只有List和Set集合类有该方法
+Iterator<String> iterator = keySet.iterator();
+while(iterator.hasNext()){
+	String key = iterator.next();
+	System.out.println(key+"："+map.get(key));
+}
+		
+3.entry循环：
+//map.entrySet()返回的由键和值对象组成的一个类型为Map.Entry()接口的Set集合
+for(Entry<String, Object> m : map.entrySet()){
+//K getKey()返回与此项对应的键；  V getValue()返回与此项对应的值。 
+	System.out.println(m.getKey()+":"+m.getValue());
+}
+		

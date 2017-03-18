@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style type="text/css">
+	* {margin:0;padding:0;}
+	body{font-size:12px;font-family:"微软雅黑";}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	img{vertical-align:top;}
+</style>
+</head>
+<body>
+	div.box>table>thead>tr*5>th*5+>tbody>tr*6>th*3
+	<script type="text/javascript">
+		var halfArr = [11,223,2,54545,434,343,154,4545];
+		for(var i = 0;i<halfArr.length;i++){
+			//获取待排序的元素
+			var temp = halfArr[i];
+			var left = 0; 
+			var right = i-1;
+			var mid = 0;
+			while(left<=right){
+				//不能将pariseInt去掉
+				mid = parseInt((left+right)/2);
+				if(temp<halfArr[mid]){
+					right = mid - 1;
+				}else{
+					left = mid + 1;
+				};
+			};
+			//先往后移动
+			for(var j=i-1;j>=left;j--){
+				halfArr[j+1]=halfArr[j];
+			};
+			//做插入
+			if(left != i){
+				halfArr[left]=temp;
+			};
+		};
+		alert(halfArr);
+	</script>
+</body>
+</html>

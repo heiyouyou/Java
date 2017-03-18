@@ -1,0 +1,141 @@
+一、显示的锁机制
+1、jdk1.5提供了多线程的升级解决方法（显示的锁机制）
+2、将同步synchronized替换成了显示的Lock操作----》lock() unlock()
+3、将Object中的wait、notify/notifyAll替换成了Condition类的(await/signal/signalAll)
+4、该对象可以 Lock.newCondition()获取
+5、一个锁可以绑定多个Condition对象，避免了因同步嵌套导致死锁问题的发生。
+6、释放锁的操作必须放在我们的try/finally代码块或者try..catch/finally代码块当中使用
+7、实现了本方只唤醒对方的操作！
+
+二、接口Lock子类ReentrantLock的常用方法
+1、Condition newCondition()返回用来与此 Lock实例一起使用的 Condition实例。 
+2、void lock()获取锁。 即是开启显示锁
+3、void unlock()试图释放此锁。
+
+三、Condition类的常用方法
+void await()造成当前线程在接到信号或被中断之前一直处于等待状态。 
+void signal()唤醒一个等待线程。
+void signalAll()唤醒所有等待线程。 
+
+四、Java反射机制
+1）Java Reflection：
+Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执行期借助于Reflection API取得任何类的内部信息，并能直接操作任意对象的内部属性及方法
+2）Java反射机制提供的功能：
+1、在运行时判断任意一个对象所属的类
+2、在运行时构造任意一个类的对象
+3、在运行时判断任意一个类所具有的成员变量和方法
+4、在运行时调用任意一个对象的成员变量和方法
+5、生成动态代理
+3）反射相关的主要API：
+java.lang.Class:代表一个类
+java.lang.reflect.Method:代表类的方法
+java.lang.reflect.Field:代表类的成员变量
+java.lang.reflect.Constructor:代表类的构造方法
+
+五、Class类
+在Object类中定义了以下的方法，此方法将被所有子类继承：public final Class getClass()
+以上的方法返回值的类型是一个Class类，此类是Java反射的源头，实际上所谓反射从程序的运行结果来看也很好理解，即：可以通过对象反射求出类的名称。
+对于每个类而言，JRE 都为其保留一个不变的 Class类型的对象。一个 Class 对象包含了特定某个类的有关信息。
+1、Class本身也是一个类
+2、Class对象只能由系统建立对象
+3、一个类在 JVM中只会有一个Class实例 
+4、一个Class对象对应的是一个加载到JVM中的一个.class文件
+5、每个类的实例都会记得自己是由哪个 Class实例所生成
+6、通过Class可以完整地得到一个类中的完整结构 
+
+六、Class类的常用方法
+1、static Class forName(String name)返回指定类名 name的 Class对象。
+2、Object newInstance() 调用缺省构造函数，返回该Class对象的一个实例，如果某个类的空构造函数没有，则会报错。
+3、String getName()返回此Class对象所表示的实体（类、接口、数组类、基本类型或void）名称。
+4、Class getSuperClass()返回当前Class对象的父类的Class对象。
+5、Class<?>[] getInterfaces()确定此对象所表示的类或接口实现的所有接口。 
+6、ClassLoader getClassLoader()返回该类的类加载器。有些实现可能使用 null来表示启动类加载器 。如果该类由启动类加载器加载，则此方法在这类实现中将返回 null。
+7、ClassLoader getParent()返回委托的父类加载器。 
+8、Constructor<?>[] getConstructors()返回一个包含某些 Constructor对象的数组，这些对象反映此 Class对象所表示的类的所有公共构造方法。 
+9、Field[] getFields()返回一个包含某些 Field对象的数组，这些对象反映此 Class对象所表示的类或接口的所有可访问公共字段。 	
+10、Field[] getDeclaredFields()返回 Field对象的一个数组，这些对象反映此 Class对象所表示的类或接口所声明的所有字段。 
+11、Field getDeclaredField(String name)返回一个 Field对象，该对象反映此 Class 对象所表示的类或接口的指定已声明字段。 
+12、Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)返回一个 Constructor对象，该对象反映此 Class对象所表示的类或接口的指定构造方法。 
+13、Method getDeclaredMethod(String name,Class<?>... parameterTypes)返回一个 Method对象，该对象反映此 Class对象所表示的类或接口的指定已声明方法。 
+14、InputStream getResourceAsStream(String name)查找具有给定名称的资源。 
+
+七、实例化Class类对象(四种方法)
+1）前提：若已知具体的类，通过类的class属性获取，该方法最为安全可靠，程序性能最高
+       实例：Class clazz = String.class;
+2）前提：已知某个类的实例，调用该实例的getClass()方法获取Class对象
+       实例：Class clazz = “www.atguigu.com”.getClass();
+3）前提：已知一个类的全类名，且该类在类路径下，可通过Class类的静态方法forName()获取，可能抛出ClassNotFoundException
+       实例：Class clazz = Class.forName(“java.lang.String”);
+4）其他方式(不做要求)
+ClassLoader cl = this.getClass().getClassLoader();
+Class clazz4 = cl.loadClass(“类的全类名”);
+
+八、类的加载过程
+当程序主动使用某个类时，如果该类还未被加载到内存中，则系统会通过如下三个步骤来对该类进行初始化。
+1、类的加载：将类的class文件读入内存，并为之创建一个java.lang.Class对象。此过程由类加载器完成
+2、类的连接：将类的二进制数据合并到JRE中
+3、类的初始化：JVM负责对类进行初始化
+
+九、类加载器
+类加载器是用来把类(class)装载进内存的。
+JVM规范定义了两种类型的类加载器： 启动类加载器与用户自定义的类加载器JVM在运行时会产生3个类加载器组成的初始化加载器层次结构
+JVM的类加载器：
+通过类加载器去加载javac编译阶段产生的字节码文件（.class）到JVM中
+然后再通过字节码校验器校验你所加载的字节码文件是不是合法的二进制文件
+1.启动类加载器    BootStrap ClassLoader  用于加载java运行中的核心类库   rt.jar(API中所有的类)、resoures.jar、charsets.jar
+2.扩展类加载器    Extension ClassLoader  负责加载jre/lib/ext中的jar包 （sun公司提供的一些没有装载jdk中的）
+3.系统类加载器    Application ClassLoader  负责加载classpath下面的jar或者类
+不管加载那个类都是从BootStrap这个开始的，如果它没找到，就会从Extention去找找看，若还没找到，就会叫Application这个去找，若还没找到，则抛异常
+注意：可以理解为：系统类加载器的父类是扩展类加载器，而扩展类加载器的父类是启动类加载器，而启动类加载器的父类则是空null
+ 
+2）类加载器Classloader的方法
+ClassLoader.getSystemClassLoader()获取一个系统类加载器
+getResourceAsStream(String str):获取当前类所在路径下的指定文件的输入流
+
+十、Constructor类
+Constructor类中：
+取得修饰符: public int getModifiers();
+取得方法名称: public String getName();
+取得参数的类型：public Class<?>[] getParameterTypes();
+newInstance(Object... initargs)使用此 Constructor对象表示的构造方法来创建该构造方法的声明类的新实例，并用指定的初始化参数初始化该实例。 
+
+
+十一、Method类
+public Class<?> getReturnType()取得全部的返回值
+public Class<?>[] getParameterTypes()取得全部的参数
+public int getModifiers()以整数形式返回此Method对象所表示方法的 Java语言修饰符 
+public Class<?>[] getExceptionTypes()取得异常信息
+Object invoke(Object obj, Object... args)对带有指定参数的指定对象调用由此 Method对象表示的底层方法。 
+
+
+十二、Field类
+Field方法中：
+public int getModifiers()以整数形式返回此Field的修饰符
+public Class<?> getType()得到Field的属性类型
+public String getName()返回Field的名称。
+void set(Object obj,Object value)将指定对象变量上此 Field对象表示的字段设置为指定的新值。 
+Object get(Object obj)返回指定对象上此 Field表示的字段的值。 
+
+十三、通过反射调用类中的指定方法、指定属性
+1）、调用指定方法：
+通过反射，调用类中的方法，通过Method类完成。步骤：
+1.通过Class类的getMethod(String name,Class…parameterTypes)方法取得一个Method对象，并设置此方法操作时所需要的参数类型。
+2.之后使用Object invoke(Object obj, Object[] args)进行调用，并向方法中传递要设置的obj对象的参数信息。
+3.Object对应原方法的返回值，若原方法无返回值，此时返回null
+4.若原方法若为静态方法，此时形参Object obj可为null
+5.若原方法形参列表为空，则Object[] args为null
+6.若原方法声明为private,则需要在调用此invoke()方法前，显式调用方法对象的setAccessible(true)方法，将可访问private的方法。
+2）、调用指定属性：
+在反射机制中，可以直接通过Field类操作类中的属性，通过Field类提供的set()和get()方法就可以完成设置和取得属性内容的操作。
+public Field getField(String name) 返回此Class对象表示的类或接口的指定的public的Field。
+public Field getDeclaredField(String name)返回此Class对象表示的类或接口的指定的Field。
+在Field中：
+public Object get(Object obj)取得指定对象obj上此Field的属性内容
+public void set(Object obj,Object value)设置指定对象obj上此Field的属性内容
+注：在类中属性都设置为private的前提下，在使用set()和get()方法时，首先要使用Field类中的setAccessible(true)方法将需要操作的属性设置为可以被外部访问。
+public void setAccessible(true)访问私有属性时，让这个属性可见。 
+
+
+
+
+

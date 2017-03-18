@@ -1,0 +1,107 @@
+一、注解(Annotation)概述
+从 JDK5.0开始, Java增加了对元数据(MetaData)的支持,也就是 Annotation(注解)
+Annotation其实就是代码里的特殊标记,这些标记可以在编译,类加载,运行时被读取,并执行相应的处理.通过使用 Annotation,程序员可以在不改变原有逻辑的情况下,在源文件中嵌入一些补充信息.
+Annotation可以像修饰符一样被使用,可用于修饰包,类,构造器,方法,成员变量,参数,局部变量的声明,这些信息被保存在 Annotation的 “name=value”对中.
+Annotation能被用来为程序元素(类, 方法, 成员变量等)设置元数据。
+
+二、基本的 Annotation
+使用 Annotation时要在其前面增加 @符号,并把该 Annotation当成一个修饰符使用。用于修饰它支持的程序元素
+三个基本的 Annotation:
+1、@Override: 限定重写父类方法,该注解只能用于方法
+2、@Deprecated: 用于表示某个程序元素(类,方法,变量等)已过时
+3、@SuppressWarnings: 抑制编译器警告
+
+三、自定义 Annotation
+1、定义新的 Annotation类型使用 @interface关键字
+2、Annotation的成员变量在 Annotation定义中以无参数方法的形式来声明.其方法名和返回值定义了该成员变量的名字和类型. 
+3、可以在定义 Annotation的成员变量时为其指定初始值,指定成员变量的初始值可使用 default关键字
+如：public @interface MyAnnotation{
+	String name() default "atguigu";
+   }
+4、没有成员定义的 Annotation称为标记;包含成员变量的 Annotation称为元数据 Annotation。
+
+四、JDK的元 Annotation
+JDK的元 Annotation用于修饰其他 Annotation定义
+JDK5.0提供了专门在注解上的注解类型，分别是：
+1、Retention
+2、Target
+3、Documented
+4、Inherited
+
+五、Retention元注解
+Retention指示注释类型的注释要保留多久。如果注释类型声明中不存在 Retention注释，则保留策略默认为 RetentionPolicy.CLASS。 
+@Retention:只能用于修饰一个 Annotation定义,用于指定该 Annotation可以保留多长时间,
+@Rentention包含一个RetentionPolicy类型的成员变量,使用 @Rentention时必须为该 value成员变量指定值:
+1、RetentionPolicy.SOURCE:编译器直接丢弃这种策略的注解
+2、RetentionPolicy.CLASS:编译器将把注解记录在 class文件中.当运行 Java程序时,JVM不会保留注解。 这是默认值
+3、RetentionPolicy.RUNTIME:编译器将把注释记录在 class文件中.当运行 Java程序时,JVM会保留注解。程序可以通过反射获取该注解
+
+五、Target元注解
+Target: 用于修饰 Annotation定义,用于指定被修饰的 Annotation能用于修饰哪些程序元素.
+@Target也包含一个名为 value的成员变量.
+
+六、其他元注解
+@Documented: 用于指定被该元 Annotation修饰的 Annotation类将被 javadoc工具提取成文档.
+定义为的注解必须设置Retention值为RUNTIME的Documented
+@Inherited: 被它修饰的 Annotation将具有继承性.如果某个类使用了被 @Inherited修饰的 Annotation,则其子类将自动具有该注解
+但是实际应用中，使用较少
+
+七、提取 Annotation信息
+JDK5.0在 java.lang.reflect包下新增了 AnnotatedElement接口,该接口代表程序中可以接受注解的程序元素
+当一个 Annotation类型被定义为运行时 Annotation后,该注释才是运行时可见,当 class件被载入时保存在 class文件中的 Annotation才会被虚拟机读取
+程序可以调用 AnnotationElement对象的如下方法来访问 Annotation信息：
+1、<T extends Annotation> T getAnnotation(Class<T> annotationClass)如果存在该元素的指定类型的注释，则返回这些注释，否则返回 null。 
+2、Annotation[] getAnnotations() 返回此元素上存在的所有注释。 
+3、Annotation[] getDeclaredAnnotations()返回直接存在于此元素上的所有注释。 
+4、boolean isAnnotationPresent(Class<? extends Annotation> annotationClass)如果指定类型的注释存在于此元素上，则返回 true，否则返回 false。 
+
+八、字符串与Pattern类、Matcher类的主要方法
+1）字符串：
+1、split()把字符串分割为字符串数组
+2、用String串对象提供的matches(String reg)匹配整个字符串，只有一出不符合就匹配结束，匹配结果返回boolean类型的false,匹配成功返回true
+3、String replaceAll(String regex, String replacement)使用给定的 replacement替换此字符串所有匹配给定的正则表达式的子字符串。 
+2）Pattern类：
+1、static Pattern compile(String regex)将给定的正则表达式编译成Pattern对象。 
+2、Matcher matcher(CharSequence input)将字符序列（如：String,StringBuffer,StringBuilder）封装成Matcher对象。
+3）Matcher类：
+1、boolean find()尝试查找与该模式匹配的输入序列的下一个子序列。
+2、String group()返回由以前匹配操作所匹配的输入子序列。 
+3、int end()返回最后匹配字符之后的后一位索引。 
+4、int start()返回以前匹配的初始索引。 
+5、boolean matches()尝试将整个区域与模式匹配。 
+
+九、正则表达式的要点
+1）预定义字符类 ：
+. 任何字符（与行结束符可能匹配也可能不匹配） 
+\d 数字：[0-9] 
+\D 非数字： [^0-9] 
+\s 空白字符：[ \t\n\x0B\f\r] 
+\S 非空白字符：[^\s] 
+\w 单词字符：[a-zA-Z_0-9] 
+\W 非单词字符：[^\w] 
+
+2）Greedy数量词 ：
+X? X，一次或一次也没有 
+X* X，零次或多次 
+X+ X，一次或多次 
+X{n} X，恰好 n 次 
+X{n,} X，至少 n 次 
+X{n,m} X，至少 n 次，但是不超过 m 次 
+
+3）组和捕获： 
+捕获组可以通过从左到右计算其开括号来编号。例如，在表达式 ((A)(B(C))) 中，存在四个这样的组： 
+1     ((A)(B(C))) 
+2     \A 
+3     (B(C)) 
+4     (C) 
+
+4）字符类： 
+[abc] a、b 或 c（简单类） 
+[^abc] 任何字符，除了 a、b 或 c（否定） 
+[a-zA-Z] a 到 z 或 A 到 Z，两头的字母包括在内（范围） 
+[a-d[m-p]] a 到 d 或 m 到 p：[a-dm-p]（并集） 
+[a-z&&[def]] d、e 或 f（交集） 
+[a-z&&[^bc]] a 到 z，除了 b 和 c：[ad-z]（减去） 
+[a-z&&[^m-p]] a 到 z，而非 m 到 p：[a-lq-z]（减去） 
+
+

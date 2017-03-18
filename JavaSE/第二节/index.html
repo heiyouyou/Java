@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link href="http://at.alicdn.com/t/font_1462372683_1439688.css" rel="stylesheet"/>
+<style type="text/css">
+	* {margin:0;padding:0;}
+	body{font-size:12px;font-family:"微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;background:#eaeaea;}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	img{vertical-align:top;}
+	.highlight{color:#f92672;}
+	.container{position:relative;min-height:100%;}
+	/*left-col start*/
+	.container .left-col{width:300px;height:100%;background:#fff;position:fixed;top:0;left:0;overflow:hidden;}
+	.container .left-col .overlay{width:100%;height:180px;background:#000;opacity:0.7;position:relative;}
+	.wrap{width:100px;height:100px;margin-left:-50px;margin-top:-50px;position:absolute;top:100%;left:50%;}
+	.box{position:relative;}
+	.box a{display:block;width:100px;height:100px;position:relative;background:#88acdb;border-radius:50%;font-size:14px;text-align:center;line-height:100px;color:#fff;z-index:2;}
+	.box .gy{position:absolute;top:0;left:0;width:100%;height:100%;background:#fff;border-radius:50%;z-index:1;animation:move 1s ease-in-out infinite /*alternate*/;}
+	.gy.move3{animation:move4 2s ease-in-out;}
+	/*关键帧*/
+	/*放大淡出*/
+	@keyframes move{
+		from{transform:scale(1);opacity:1;}
+		to{transform:scale(1.2);opacity:0;}
+	}
+	/*放大平移*/
+	@keyframes move1{
+		from{transform:scale(1) translateX(0px);}
+		to{transform:scale(1.2) translateX(300px);}
+	}
+	/*旋转放大平移*/
+	@keyframes move2{
+		from{transform:rotate(0deg) scale(1) translateX(0px);}
+		to{transform:rotate(360deg) scale(1.2) translateX(200px);}
+	}
+	/*放大平移变形淡入*/
+	@keyframes move3{
+		0%{transform: scale(1) translateX(0px) skewX(20deg);opacity:0}
+		50%{transform: scale(2) translateX(-300px) skewX(30deg);opacity:0.5}
+		75%{transform: scale(1) translateX(0px) skewX(0deg);opacity:0.8}
+		100%{transform:scale(6) translateX(300px) skewX(-30deg);opacity:1} 
+	}
+	/*放大旋转淡出*/
+	@keyframes move4{
+		0%{transform:scale(1) rotate(0deg);}
+		100%{transform:scale(5) rotate(360deg);opacity:0;}
+	}
+	.container .left-col .intrude-less{width:76%;margin:80px auto 0;background:#fff;}
+	.container .left-col .intrude-less .header-author{text-align:center;font-size:30px;margin:0.5em 0;font-family:Roboto,"Roboto",serif;font-weight:500;}
+	.container .left-col .intrude-less .header-author a{color:#696969;transition:0.3s;}
+	.container .left-col .intrude-less .header-author a:hover{color:#b0a0aa;}
+	.container .left-col .intrude-less .header-subtitle{width:100%;text-align:center;word-wrap:nowrap;color:#999;font-size:14px;overflow:hidden;line-height:25px;text-overflow:ellipsis;}
+	.container .left-col .intrude-less .switch-area{position:relative;width:100%;overflow:hidden;min-height:500px;font-size:14px;margin-top:10px;}
+	.container .left-col .intrude-less .switch-area .switch-wrap li{text-align:center;line-height:38px;}
+	.container .left-col .intrude-less .switch-area .switch-wrap li a{font-size:14px;color:#696969;}
+	.container .left-col .intrude-less .switch-area .switch-wrap li a:hover{color:#b0a0aa;}
+	/*end left-col*/
+	/*mid-col start*/
+	.container .mid-col{position:absolute;right:0;left:300px;width:auto;min-height:100%;background-color:#eaeaea;}
+	.container .mid-col .body-wrap{margin-bottom:80px;}
+	.container .mid-col .body-wrap article{min-height:346px;background:#fff;margin:30px;border:1px solid #ddd;position:relative;}
+	.container .mid-col .body-wrap article:hover{box-shadow:0 15px 30px rgba(0,0,0,0.1);transition:all .2s linear;}
+	.container .mid-col .body-wrap article .article-header{border-left:5px solid rgba(0,0,0,.7);padding:15px 0px 15px 25px;}
+	.container .mid-col .body-wrap article .article-header h1{font-size:1.5em;}
+	.container .mid-col .body-wrap article .article-header .article-title{color:#696969;font-size:26px;line-height:35px;font-weight:300;margin-bottom:20px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-header .article-title:hover{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-meta{position:absolute;top:23px;right:0;width:150px;text-align:center;}
+	.container .mid-col .body-wrap article .article-meta time{color:#aaa;font-size:16px;transition:color 0.3s;}
+	.container .mid-col .body-wrap article .article-meta i.time{color:#aaa;}
+	.container .mid-col .body-wrap article .article-meta:hover time{color:#b0a0aa;}
+	.container .mid-col .body-wrap article .article-entry{padding:0 30px;line-height:1.8em;}
+	.container .mid-col .body-wrap article .article-entry h4{font-size:1.3em;color:#574c4c;font-weight:300;border-bottom:1px solid #ddd;margin-top:20px;padding-bottom:5px;}
+	.container .mid-col .body-wrap article .article-entry ul{margin:10px 0px;font-size:14px;color:rgba(99, 96, 96, 0.8);}
+	.container .mid-col .body-wrap article .article-entry ul li{line-height:30px;}
+	.container .mid-col .body-wrap article .article-entry ul li:before{content:"";display:inline-block;float:left;width:6px;height:6px;margin-top:11px;margin-right:10px;background:#aaa;border:1px solid #999;border-radius:10px;}
+	.container .mid-col .body-wrap article .article-entry ul li code{padding:1px 3px;margin:0 3px;background:#ddd;border:1px solid #ccc;font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;word-wrap: break-word;font-size:14px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index{padding-top:20px;margin:30px 30px 0 30px;border-top:1px solid #ddd;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link{margin-top:5px;text-align:right;height:45px;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a{color:#fff;font-size:12px;background:#4d4d4d;padding:2px 8px 4px;border-radius:2px;transition:background 0.3s;}
+	.container .mid-col .body-wrap article .article-info.article-info-index .article-more-link a:hover{background:#3c3c3c;}
+	/*end mid-col*/
+	/*屏幕小于600px的时候触发*/
+	@media screen and (max-width:600px){
+		.container .left-col{display:none;}
+		.container .mid-col{left:0;}
+		.container .mid-col .body-wrap article .article-meta{display:none;}
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<!-- left-col start -->
+		<div class="left-col">
+			<div class="overlay">
+				<div class="wrap">
+					<div class="box">
+						<a href="javascript:void(0);" id="clickme">Power</a>
+						<span class="gy"></span>
+					</div>
+				</div>
+			</div>
+			<div class="intrude-less">
+				<h1 class="header-author"><a href="javascript:void(0);">HeiYouYou</a></h1>
+				<p class="header-subtitle">轻松快乐学编程</p>
+				<div class="switch-area">
+					<div class="switch-wrap">
+						<ul>
+							<li><a href="javascript:void(0);" target="_new">主页</a></li>
+							<li><a href="javascript:void(0);" target="_new">所有文章</a></li>
+							<li><a href="javascript:void(0);" target="_new">泛泛而谈</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end left-col -->
+		<!-- mid-col start -->
+		<div class="mid-col">
+			<div class="body-wrap">
+				<article>
+					<div class="article-meta">
+						<a href="javascript:void(0);" target="_blank" class="article-date">
+							<i class="iconfont time">&#xe600;</i>
+							<time>2016-05-01</time>
+						</a>
+					</div>
+					<header class="article-header">
+						<h1><a class="article-title" href="demo/second.html" target="_blank">JavaSe基础第一节</a></h1>
+					</header>
+					<div class="article-entry">
+						<h4><span>Java语言的特点</span></h4>
+						<ul>
+							<li>
+								<a href="javascript:void(0);" class="highlight">1.完全面向对象：</a>所有的设计都必须在类中实现，一个Java程序就是多个类的集合。
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="highlight">2.安全性</a>：良好的安全模型，摒弃了其它语言的不安全成分。如字节码验证器对字节码的验证，放止其它非法代码侵入；内存空间不够、程序异常终止等的处理。
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="highlight">3.分布式：</a>直接支持分布式的网络应用，可实现高效的网络编程。
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="highlight">4.多线程：</a>多线程机制使得程序能够并行处理多项任务。例如一个线程负责数据的检索，一个线程与用户进行交互，两个线程并行执行。
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="highlight">5.平台无关性：</a>借助虚拟机，程序不经修改即可在不同硬件或软件平台上运行。
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="highlight">6.动态内存管理机制：</a>采用自动垃圾回收机制进行内存管理。可以自动、安全回收不再使用的内存块，减少了内存管理方面出错的可能性。
+							</li>
+						</ul>
+					</div>
+					<div class="article-info article-info-index">
+						<div class="article-tag tagcloud"></div>
+						<p class="article-more-link"><a href="demo/second.html" target="_blank">more >></a></p>
+					</div>
+				</article>
+				<article>
+					<div class="article-meta">
+						<a href="javascript:void(0);" target="_blank" class="article-date">
+							<i class="iconfont time">&#xe600;</i>
+							<time>2016-05-04</time>
+						</a>
+					</div>
+					<header class="article-header">
+						<h1><a class="article-title" href="demo/second.html" target="_blank">JavaSe基础第二节</a></h1>
+					</header>
+					<div class="article-entry">
+						<h4><span>Java数据类型</span></h4>
+						<ul>
+							<li>
+								在java源代码中，每个变量都必须声明一种类型（type）。有两种类型：primitive type和reference type。引用类型引用对象（reference to object），而基本类型直接包含值（directly contain value）。因此，Java数据类型（type）可以分为两大类：基本类型（primitive types）和引用类型（reference types）。primitive types 包括boolean类型以及数值类型（numeric types）。numeric types又分为整型（integer types）和浮点型（floating-point type）。整型有5种：byte short int long char(char本质上是一种特殊的int)。浮点类型有float和double。
+							</li>
+						</ul>
+					</div>
+					<div class="article-info article-info-index">
+						<div class="article-tag tagcloud"></div>
+						<p class="article-more-link"><a href="demo/second.html" target="_blank">more >></a></p>
+					</div>
+				</article>
+			</div>
+		</div>
+		<!-- end mid-col -->
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			var  arr = [];
+			var clickmeDom = document.getElementById("clickme");
+			var timer = setInterval(function(){
+				clickmeDom.style.background = "radial-gradient("+randomColor16()+","+randomColor16()+")";
+			},1000);
+			clickmeDom.onclick = function(){
+				clearInterval(timer);
+				var spanDom = document.createElement("span");
+				spanDom.className = "gy move3";
+				this.style.background = "radial-gradient("+randomColor16()+","+randomColor16()+")";
+				spanDom.style.background = "linear-gradient("+randomColor16()+","+randomColor16()+")";
+				var pDom = this.parentElement;
+				pDom.appendChild(spanDom);
+				arr.push(spanDom);
+				setTimeout(function(){
+					var index = arr.indexOf(spanDom);
+					pDom.removeChild(arr.splice(index,1)[0]);
+				},2000);
+			};
+			//随机rgb颜色
+			function randomColor(){
+				var r = Math.floor(Math.random()*256);
+				var g = Math.floor(Math.random()*256);
+				var b = Math.floor(Math.random()*256);
+				return "rgb("+r+","+g+","+b+")";
+			};
+			//随机十六进制颜色
+			function randomColor16(){
+				var r = Math.floor(Math.random()*256).toString(16);
+				var g = Math.floor(Math.random()*256).toString(16);
+				var b = Math.floor(Math.random()*256).toString(16);
+				return "#"+r+g+b;
+				/*//0-255	
+				var r = Math.random(255).toString(16);
+				var g = Math.random(255).toString(16);
+				var b = Math.random(255).toString(16);
+				//255的数字转换成十六进制
+				if(r.length<2)r = "0"+r;
+				if(g.length<2)g = "0"+g;
+				if(b.length<2)b = "0"+b;
+				return "#"+r+g+b;*/
+			};
+		};
+	</script>
+</body>
+</html>

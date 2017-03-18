@@ -1,0 +1,113 @@
+一、
+程序(program)：
+是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+进程(process)：
+是程序的一次执行过程，或是正在运行的一个程序。动态过程：有它自身的产生、存在和消亡的过程。
+如：运行中的QQ，运行中的MP3播放器
+程序是静态的，进程是动态的
+线程(thread)：
+进程可进一步细化为线程，是一个程序内部的一条执行路径。
+若一个程序可同一时间执行多个线程，就是支持多线程的
+注意：
+每个Java程序都有一个隐含的主线程： main 方法
+
+二、何时需要多线程
+1.程序需要同时执行两个或多个任务。
+2.程序需要实现一些需要等待的任务时，如用户输入、文件读写操作、网络操作、搜索等。
+3.需要一些后台运行的程序时。
+
+三、Thread类
+构造方法
+Thread()：创建新的Thread对象
+Thread(String threadname)：创建线程并指定线程实例名
+Thread(Runnable target)：指定创建线程的目标对象，它实现了Runnable接口中的run方法
+Thread(Runnable target, String name)：创建新的Thread对象和线程名
+
+四、多线程的创建和启动
+Java语言的JVM允许程序运行多个线程，它通过java.lang.Thread类来实现。
+Thread类的特性：
+每个线程都是通过某个特定Thread对象的run()方法来完成操作的，经常把run()方法的主体称为线程体
+通过该Thread对象的start()方法来调用这个线程
+
+五、创建线程的两种方式
+1.继承Thread类
+1)定义子类继承Thread类。
+2)子类中重写Thread类中的run方法。
+3)创建Thread子类对象，即创建了线程对象。
+4)调用线程对象start方法：启动线程，内部自动调用了run方法。
+
+2.实现Runnable接口
+1）定义子类，实现Runnable接口。
+2）子类中重写Runnable接口中的run方法。
+3）通过Thread类含参构造器创建线程对象。
+4）将Runnable接口的子类对象作为实际参数传递给 Thread类的构造方法中。
+5）调用Thread类的start方法：开启线程，内部自动调用了Runnable子类接口的run方法。
+
+六、继承方式和实现方式的联系与区别
+联系：
+Thread同时继承于Object并且实现了Runnable接口
+public class Thread extends Object implements Runnable
+区别：
+继承Thread：线程代码存放Thread子类run方法中。
+实现Runnable：线程代码存在接口的子类的run方法。
+实现方法的好处：
+1）避免了单继承的局限性
+2）多个线程可以共享同一个接口实现类的对象，非常适合多个相同线程来处理同一份资源。
+
+七、Thread类的有关方法
+void start(): 启动线程，并执行对象的run()方法
+run(): 线程在被调度时执行的操作
+String getName(): 返回线程的名称
+void setName(String name): 设置该线程名称
+void setPriority(int newPriority) 更改线程的优先级。 
+int getPriority() 返回线程的优先级。
+static Thread currentThread()返回对当前正在执行的线程对象的引用。
+static void yield()：线程让步，暂停当前正在执行的线程，把执行机会让给优先级相同或更高的线程，若队列中没有同优先级的线程，忽略此方法
+join()：当某个程序执行流中调用其他线程的 join()方法时，调用线程将被阻塞，直到其他线程执行完为止，该线程才会被打开执行；低优先级的线程也可以获得执行 
+join(long millis)：等待该线程终止的时间最长为 millis毫秒后调用线程才执行。
+static void sleep(long millis)：(指定时间:毫秒)令当前活动线程在指定时间段内放弃对CPU控制,使其他线程有机会被执行,时间到后重排队。抛出InterruptedException异常
+stop(): 强制线程生命期结束
+boolean isAlive()：返回boolean，判断线程是否还活着
+void setDaemon(boolean on) 将该线程标记为守护线程(true)或用户线程(false)。守护线程在jvm退出时自动结束，JVM不会等守护线程，守护线程服务于用户线程
+void interrupt() 中断线程。 
+boolean isInterrupted() 测试线程是否已经中断。 
+static boolean interrupted() 测试当前线程是否已经中断。
+八、线程的调度
+调度策略
+1.时间片：同优先级线程组成先进先出队列（先到先服务）的方式，使用时间片策略
+2.抢占式：高优先级的线程抢占CPU，对高优先级，使用优先调度的抢占式策略
+
+九、线程的优先级
+线程的优先级控制：
+MAX_PRIORITY（10）;    
+MIN _PRIORITY （1）;  
+NORM_PRIORITY （5）;
+涉及的方法：
+getPriority() ：返回线程优先值 
+setPriority(int newPriority) ：改变线程的优先级
+线程创建时继承父线程的优先级
+
+十、使用多线程的优点
+背景：只使用单个线程完成多个任务（调用多个方法），肯定比用多个线程来完成用的时间更短！
+为何仍需多线程呢？
+1、多线程程序的优点：
+2、提高应用程序的响应。对图形化界面更有意义，可增强用户体验。
+3、提高计算机系统CPU的利用率
+4、改善程序结构。将既长又复杂的进程分为多个线程，独立运行，利于理解和修改
+
+十一、线程的分类
+Java中的线程分为两类：一种是守护线程，一种是用户线程。
+它们在几乎每个方面都是相同的，唯一的区别是判断JVM何时离开。
+守护线程是用来服务用户线程的，通过在start()方法前调用thread.setDaemon(true)可以把一个用户线程变成一个守护线程。
+Java垃圾回收就是一个典型的守护线程。
+当所有的用户线程结束，JVM就退出了，守护线程也伴随结束。JVM不会等守护线程。
+
+十二、线程的生命周期
+要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的五种状态：
+新建： 当一个Thread类或其子类的对象被声明并创建时，新生的线程对象处于新建状态
+就绪：处于新建状态的线程被start()后，将进入线程队列等待CPU时间片，此时它已具备了运行的条件
+运行：当就绪的线程被调度并获得处理器资源时,便进入运行状态， run()方法定义了线程的操作和功能
+阻塞：在某种特殊情况下，被人为挂起或执行输入输出操作时，让出 CPU并临时中止自己的执行，进入阻塞状态，失去CPU执行权、yield()同等级或者级别高，等待同步锁：sleep()/wait()/join()/suspend()
+死亡：线程完成了它的全部工作或线程被提前强制性地中止；正常执行完run()、Error/Exception未处理、stop()
+
+
